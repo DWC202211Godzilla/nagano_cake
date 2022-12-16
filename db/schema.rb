@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 2022_12_15_060100) do
 ActiveRecord::Schema.define(version: 2022_12_15_060100) do
 >>>>>>> Stashed changes
 
+ActiveRecord::Schema.define(version: 2022_12_15_050215) do
+
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -66,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_060100) do
 =======
 >>>>>>> Stashed changes
 
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -106,6 +110,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_060100) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
@@ -148,12 +153,18 @@ ActiveRecord::Schema.define(version: 2022_12_15_060100) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
+=======
+>>>>>>> c2d20519db502716bfd270ad96e13221dcbcd623
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 >>>>>>> 6f57811c7bc475e99af74ec80c120d22e573cd2c
 =======
 >>>>>>> Stashed changes
+=======
+
+>>>>>>> c2d20519db502716bfd270ad96e13221dcbcd623
