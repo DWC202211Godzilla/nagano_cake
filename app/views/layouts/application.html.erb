@@ -14,9 +14,7 @@
     <header>
     <% if customer_signed_in? %>
       <li>
-
-        <%= button_to "ログアウト", destroy_customer_session_path, method: :delete %>
-
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
