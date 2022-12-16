@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< Updated upstream
 
+ActiveRecord::Schema.define(version: 2022_12_15_060100) do
+
+
+
+=======
+ActiveRecord::Schema.define(version: 2022_12_15_060100) do
+>>>>>>> Stashed changes
 
 ActiveRecord::Schema.define(version: 2022_12_15_050215) do
 
@@ -43,8 +51,29 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+  create_table "addresses", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name"
+    t.string "post_code"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+<<<<<<< Updated upstream
+=======
+>>>>>>> 6f57811c7bc475e99af74ec80c120d22e573cd2c
+=======
+>>>>>>> Stashed changes
 
 
+=======
+=======
+>>>>>>> a44a8ebd43c2e2546f03af7ef12f5e629d2ecde6
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -57,6 +86,17 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
+  create_table "cart_items", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "item_id"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+=======
+>>>>>>> a44a8ebd43c2e2546f03af7ef12f5e629d2ecde6
   create_table "customers", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "personal_name", null: false
@@ -77,8 +117,65 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+>>>>>>> Stashed changes
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
+  create_table "items", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "name"
+    t.integer "price"
+    t.text "introduction"
+    t.boolean "is_active"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+    t.integer "price"
+    t.integer "making_status"
+    t.integer "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "customer_id"
+    t.string "name"
+    t.string "address"
+    t.string "postal_code"
+    t.integer "total_payment"
+    t.integer "status"
+    t.integer "payment_method"
+    t.integer "shipping_cost"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+=======
+>>>>>>> c2d20519db502716bfd270ad96e13221dcbcd623
+
+=======
+>>>>>>> Stashed changes
+>>>>>>> a44a8ebd43c2e2546f03af7ef12f5e629d2ecde6
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
+<<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+>>>>>>> 6f57811c7bc475e99af74ec80c120d22e573cd2c
+=======
+>>>>>>> Stashed changes
+=======
 
+>>>>>>> c2d20519db502716bfd270ad96e13221dcbcd623
