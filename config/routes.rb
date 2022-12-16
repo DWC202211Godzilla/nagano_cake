@@ -17,9 +17,9 @@ Rails.application.routes.draw do
     sessions:"admin/sessions"
   }
 
-<<<<<<< HEAD
 
-=======
+
+
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
 
@@ -51,6 +51,6 @@ Rails.application.routes.draw do
     resources :orders, only:[:show, :update]
     resources :order_details, only:[:update]
   end
->>>>>>> c2d20519db502716bfd270ad96e13221dcbcd623
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
