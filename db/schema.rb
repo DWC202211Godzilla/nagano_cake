@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
 
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Stashed changes
   create_table "addresses", force: :cascade do |t|
@@ -70,6 +71,9 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
 >>>>>>> Stashed changes
 
 
+=======
+=======
+>>>>>>> a44a8ebd43c2e2546f03af7ef12f5e629d2ecde6
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,6 +86,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
   create_table "cart_items", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "item_id"
@@ -90,6 +95,8 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+=======
+>>>>>>> a44a8ebd43c2e2546f03af7ef12f5e629d2ecde6
   create_table "customers", force: :cascade do |t|
     t.string "family_name", null: false
     t.string "personal_name", null: false
@@ -110,6 +117,7 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< Updated upstream
 <<<<<<< HEAD
@@ -156,6 +164,9 @@ ActiveRecord::Schema.define(version: 2022_12_15_050215) do
 =======
 >>>>>>> c2d20519db502716bfd270ad96e13221dcbcd623
 
+=======
+>>>>>>> Stashed changes
+>>>>>>> a44a8ebd43c2e2546f03af7ef12f5e629d2ecde6
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end
