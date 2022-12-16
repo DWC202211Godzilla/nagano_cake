@@ -1,17 +1,6 @@
 <h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-
-  <div class="field">
-    <%= f.label :family_name,"姓" %><%= f.label :personal_name,"名" %>
-    <%= f.text_field :family_name %><%= f.text_field :personal_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :family_name_kana,"姓(カナ)" %><%= f.label :personal_name_kana,"名(カナ)" %>
-    <%= f.text_field :family_name_kana %><%= f.text_field :personal_name_kana %>
-  </div>
+<%= form_with model: @customer, url: session_path, local: true do |f| %
 
   <div class="field">
     <%= f.label :email %><br />
@@ -23,29 +12,6 @@
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
-
-  <div class="field">
-  <%= f.label :post_code,"郵便番号" %><br>
-  <%= f.text_field :post_code %>
-  </div>
-
-   <div class="field">
-  <%= f.label :address,"住所" %><br>
-  <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-  <%= f.label :phone_number,"電話番号" %><br>
-  <%= f.text_field :phone_number %>
-  </div>
-
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
 
   <div class="actions">
     <%= f.submit "Log in" %>
