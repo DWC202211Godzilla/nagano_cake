@@ -12,11 +12,12 @@
 
   <body>
     <header>
+
+      <span>LOGOマーク</span>
+
     <% if customer_signed_in? %>
       <li>
-
-        <%= button_to "ログアウト", destroy_customer_session_path, method: :delete %>
-
+        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
@@ -26,6 +27,7 @@
         <%= link_to "ログイン", new_customer_session_path %>
       </li>
     <% end %>
+    <span>検索機能(余力があれば)</span>
     </header>
     <%= yield %>
   </body>

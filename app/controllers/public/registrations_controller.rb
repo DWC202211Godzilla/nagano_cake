@@ -1,7 +1,3 @@
-class Public::RegistrationsController < ApplicationController
-  # def new
-  # end
+class Public::RegistrationsController < Devise::RegistrationsController
 
-  # def create
-  # end
 end

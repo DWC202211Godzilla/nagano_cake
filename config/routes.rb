@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   namespace :public do
     get 'registrations/new'
     get 'registrations/create'
@@ -9,6 +10,9 @@ Rails.application.routes.draw do
     get 'items/show'
   end
 
+=======
+  devise_for :controllers
+>>>>>>> 3e248272a9b0cd598b154af875e078722e7e1295
 
 
   devise_for :customers, skip:[:passwords],controllers:{
@@ -19,9 +23,6 @@ Rails.application.routes.draw do
   devise_for :admins, skip:[:registrations, :passwords] ,controllers:{
     sessions:"admin/sessions"
   }
-
-
-
 
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
