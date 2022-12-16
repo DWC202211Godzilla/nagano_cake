@@ -4,8 +4,6 @@ Rails.application.routes.draw do
     get 'items/index'
     get 'items/show'
   end
-  devise_for :admins
-  devise_for :customers
 
 
   devise_for :customers, skip:[:passwords],controllers:{
