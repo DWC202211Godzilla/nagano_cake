@@ -1,2 +1,122 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  width:100%;
+  hight:80px;
+  padding: 15px 0;
+  position: relative;
+  text-align:center;
+  border-bottom:1px solid;
+}
+
+.main{
+  margin-top:15px;
+}
+
+.footer{
+  height:40px;
+  border-top:1px solid;
+}
+
+.logo{
+  width:180px;
+  height:45px;
+  position: absolute;
+  top:25px;
+  left:40px;
+  border:1px solid gray;
+}
+
+.header_message{
+  line-height:80px;
+}
+
+.header_items{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  display:flex;
+}
+
+.header_item{
+  width:110px;
+  height:45px;
+  margin-left:30px;
+  text-align:center;
+  padding-top:8px;
+  border:1px solid gray;
+  border-radius: 5px;
+
+}
+
+.header_search{
+  position: absolute;
+  top: 60px;
+  right: 150px;
+}
+
+.home_search{
+  width:200px;
+  height:300px;
+  margin:10px;
+  background-color:skyblue;
+  border:solid black;
+}
+
+.home_serch_top{
+  width:197px;
+  border-bottom:solid black;
+  text-align:center;
+}
+
+.home_serch_list{
+  width:200px;
+  padding:10px;
+}
+
+.home_photo{
+  width:600px;
+  height:300px;
+  margin:10px;
+  background-color:pink;
+  padding:80px;
+}
+
+.home_items_box{
+  display:flex;
+}
+
+.home_items{
+  width:200px;
+  height:150px;
+  margin:10px;
+}
+
+.home_items_photo{
+  width:200px;
+  height:100px;
+  background-color:orange;
+}
+
+.home_to_items{
+  text-align:right;
+}
+
+
+.about{
+  text-align:center;
+}
+
+.about_photo{
+  width:500px;
+  height:250px;
+  background-color:pink;
+  margin:10px auto;
+}
