@@ -7,28 +7,33 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header>
+    <header class='header'>
 
-      <span>LOGOマーク</span>
+      <div class='logo'>LOGOマーク</div>
+      <h6 class="header_message">ようこそcustomerさん！</h6>
+      <div class='header_items'>
+        <% if customer_signed_in? %>
+          <div class='header_item'>
+            <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
+          </div>
+        <% else %>
+          <div class='header_item'>
+            <%= link_to "新規登録", new_customer_registration_path %>
+          </div>
+          <div class='header_item'>
+            <%= link_to "ログイン", new_customer_session_path %>
+          </div>
+        <% end %>
+        <div class='header_search'>検索機能(余力があれば)</div>
+      </div>
 
-    <% if customer_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_customer_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_customer_session_path %>
-      </li>
-    <% end %>
-    <span>検索機能(余力があれば)</span>
     </header>
-    <%= yield %>
+    <main class='main'>
+      <%= yield %>
+    </main>
   </body>
 </html>

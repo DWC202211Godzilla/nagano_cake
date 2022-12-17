@@ -1,2 +1,103 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header{
+  width:100%;
+  hight:80px;
+  padding: 15px 0;
+  position: relative;
+  text-align:center;
+  border-bottom:1px solid;
+}
+
+.main{
+  margin-top:15px;
+}
+
+
+.logo{
+  width:200px;
+  height:50px;
+  position: absolute;
+  top:35px;
+  left:30px;
+  border:1px solid gray;
+}
+
+.header_message{
+  line-height:80px;
+}
+
+.header_items{
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  display:flex;
+}
+
+.header_item{
+  margin-left:20px;
+  padding:5px 8px;
+  border:1px solid gray;
+  border-radius: 5px;
+
+}
+
+.header_search{
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+.home_search{
+  width:200px;
+  height:300px;
+  margin:10px;
+  background-color:skyblue;
+  border:solid black;
+}
+
+.home_serch_top{
+  width:197px;
+  border-bottom:solid black;
+  text-align:center;
+}
+
+.home_serch_list{
+  width:200px;
+  padding:10px;
+}
+
+.home_photo{
+  width:600px;
+  height:300px;
+  margin:10px;
+  background-color:pink;
+  padding:80px;
+}
+
+.home_items_box{
+  display:flex;
+}
+
+.home_items{
+  width:200px;
+  height:150px;
+  margin:10px;
+}
+
+.home_items_photo{
+  width:200px;
+  height:100px;
+  background-color:orange;
+}
+
+.home_to_items{
+  text-align:right;
+}
