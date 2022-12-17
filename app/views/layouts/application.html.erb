@@ -13,14 +13,32 @@
   <body>
     <header class='header'>
 
-      <div class='logo'>LOGOマーク</div>
+      <div class='logo'>
+        <%= link_to "LOGOマーク", root_path %>
+      </div>
       <h6 class="header_message">ようこそcustomerさん！</h6>
       <div class='header_items'>
+
         <% if customer_signed_in? %>
+          <div class='header_item'>
+            <%= link_to "マイページ", customers_my_page_path %>
+          </div>
+          <div class='header_item'>
+            <%= link_to "商品一覧", items_path %>
+          </div>
+          <div class='header_item'>
+            <%= link_to "カート", cart_items_path %>
+          </div>
           <div class='header_item'>
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
           </div>
         <% else %>
+          <div class='header_item'>
+            <%= link_to "About", about_path %>
+          </div>
+          <div class='header_item'>
+            <%= link_to "商品一覧", items_path %>
+          </div>
           <div class='header_item'>
             <%= link_to "新規登録", new_customer_registration_path %>
           </div>
@@ -28,12 +46,15 @@
             <%= link_to "ログイン", new_customer_session_path %>
           </div>
         <% end %>
-        <div class='header_search'>検索機能(余力があれば)</div>
       </div>
+        <div class='header_search'>検索機能(余力があれば)</div>
+
 
     </header>
     <main class='main'>
       <%= yield %>
     </main>
+    <footer class='footer'>
+    </footer>
   </body>
 </html>
