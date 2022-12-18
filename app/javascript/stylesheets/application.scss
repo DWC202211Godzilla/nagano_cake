@@ -20,9 +20,19 @@
   margin-top:15px;
 }
 
+body{
+  position: relative;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
 .footer{
+  width:100%;
   height:40px;
   border-top:1px solid;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }
 
 .logo{
@@ -60,6 +70,11 @@
   position: absolute;
   top: 60px;
   right: 150px;
+}
+
+// テーブルの装飾
+table td{
+  padding:10px;
 }
 
 .home_search{
@@ -119,4 +134,42 @@
   height:250px;
   background-color:pink;
   margin:10px auto;
+}
+
+  // login画面のcss
+.login_top{
+  width:100px;
+  hight:20px;
+  margin:0 0 0 100px;
+  background-color:#e5e5e5;
+  text-align:center;
+}
+
+.admin_login_top{
+  width:200px;
+  hight:20px;
+  margin:0 0 0 100px;
+  background-color:#e5e5e5;
+  text-align:center;
+}
+
+.login_second{
+  width:300px;
+  hight:17px;
+  margin:20px 20px 20px 150px;
+  background-color:#e5e5e5;
+  text-align:center;
+}
+
+.login_items{
+  width:800px;
+  margin:auto;
+}
+
+.login_item{
+  width:400px;
+}
+
+.login_button{
+  padding-top:30px;
 }
