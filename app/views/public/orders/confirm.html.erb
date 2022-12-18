@@ -1,2 +1,44 @@
-<h1>Public::Orders#confirm</h1>
-<p>Find me in app/views/public/orders/confirm.html.erb</p>
+<h2>注文情報確認</h2>
+
+<table class="table">
+  <tr>
+    <td>商品名</td>
+    <td>単価(税込)</td>
+    <td>数量</td>
+    <td>小計</td>
+  </tr>
+  <% @cart_items.each do |cart| %>
+    <tr>
+      <td><%= cart.item.name %></td>
+      <td><%= (cart.item.price * 1.1).to_s(:delimited) %></td>
+      <td><%= cart.amount %></td>
+      <td><%= (cart.item.price * 1.1 * cart.amount).to_s(:delimited) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<table class="table">
+  <tr>
+    <td>送料</td>
+    <td><%= @order.shipping_cost %></td>
+  </tr>
+  <tr>
+    <td>商品合計</td>
+    <td><%=  %></td>
+  </tr>
+  <tr>
+    <td>請求金額</td>
+    <td><%=%></td>
+  </tr>
+</table>
+
+<p>
+  <strong>支払方法</strong>
+  <% if @order.payment_method == 0 %>
+    クレジットカード
+  <% else %>
+    銀行振込
+  <% end %>
+</p>
+
+<p><strong>お届け先</strong>  〒<%= @order.postal_code + @order.address + @order.name %></p>

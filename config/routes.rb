@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
-  devise_for :controllers
+  namespace :public do
+    get 'registrations/new'
+    get 'registrations/create'
+  end
+  namespace :public do
+    get 'items/index'
+    get 'items/show'
+  end
+
+
 
   devise_for :customers, skip:[:passwords],controllers:{
     registrations:"public/registrations",
@@ -29,8 +38,8 @@ Rails.application.routes.draw do
     delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
     resources :orders, only:[:new,:create, :index, :show]
-    post 'orders/confirm' => 'public/orders#confirm'
-    get 'orders/complete' => 'public/orders#complete'
+    post 'orders/confirm' => 'orders#confirm'
+    get 'orders/complete' => 'orders#complete'
 
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
   end
