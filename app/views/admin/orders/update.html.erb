@@ -1,2 +1,59 @@
-<h1>Admin::Orders#update</h1>
-<p>Find me in app/views/admin/orders/update.html.erb</p>
+<h2>注文履歴詳細</h2>
+<table>
+  <tr>
+    <td><strong>購入者</strong></td>
+    <td><%=%></td>
+  </tr>
+  <tr>
+    <td><strong>注文日</strong></td>
+    <td><%=%></td>
+  </tr>
+  <tr>
+    <td><strong>配送先</strong></td>
+    <td><%=%></td>
+  </tr>
+  <tr>
+    <td><strong>支払方法</strong></td>
+    <td><%=%></td>
+  </tr>
+  <tr>
+    <td><strong>注文ステータス</strong></td>
+    <td><%=%></td>
+  </tr>
+</table>
+
+<table class="table">
+  <tr>
+    <th>商品名</th>
+    <th>単価（税込）</th>
+    <th>数量</th>
+    <th>小計</th>
+    <th>製作ステータス</th>
+    <th></th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%=%></td>
+      <td><%=%></td>
+      <td><%=%></td>
+      <td><%=%></td>
+      <td><%=%></td>
+      <td><%=%></td>
+    </tr>
+  <% end %>
+</table>
+
+<table>
+  <tr>
+    <td><strong>商品合計</strong></td>
+    <td>円</td>
+  </tr>
+  <tr>
+    <td><strong>送料</strong></td>
+    <td>円</td>
+  </tr>
+  <tr>
+    <td><strong>請求金額合計</strong></td>
+    <td><strong>円</strong></td>
+  </tr>
+</table>
