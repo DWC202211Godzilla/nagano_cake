@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
-  devise_for :admins, skip:[:registrations, :passwords] ,controllers:{
+  devise_for :admin, skip:[:registrations, :passwords] ,controllers:{
     sessions:"admin/sessions"
   }
 
@@ -38,9 +38,9 @@ Rails.application.routes.draw do
 
     delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
 
-    resources :orders, only:[:new,:create, :index, :show]
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
+    resources :orders, only:[:new,:create, :index, :show]
 
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
   end

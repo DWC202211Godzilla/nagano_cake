@@ -1,2 +1,29 @@
-<h1>Admin::Homes#top</h1>
-<p>Find me in app/views/admin/homes/top.html.erb</p>
+<div class="admin_top">
+  <h5 class="gray">商品一覧</h5>
+</div>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" width="10%">商品ID</th>
+      <th scope="col" width="30%">商品名</th>
+      <th scope="col" width="10%">税抜価格</th>
+      <th scope="col" width="30%">ジャンル</th>
+      <th scope="col" width="20%">ステータス</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>商品id</td>
+      <td>商品名</td>
+      <td>税抜き価格</td>
+      <td>ジャンル</td>
+      <td>ステータス</td>
+    </tr>
+  </tbody>
+
+</table>
+<div class="pager">
+<%#= paginate post_images %>
+</div>
