@@ -1,2 +1,20 @@
-<h1>Admin::Items#show</h1>
-<p>Find me in app/views/admin/items/show.html.erb</p>
+<h2>商品詳細</h2>
+  <table>
+  <tr><%= image_tag @item.image, size:"200x200" %></tr>
+  <tr>
+    <th>商品名</th>
+    <td><%= @item.name %></td>
+  </tr>
+  <tr>
+    <th>商品説明</th>
+    <td><%= @item.introduction %></td>
+  </tr>
+  <tr>
+    <th>ジャンル</th>
+    <td></td>
+  </tr>
+  <tr>
+    <th>販売ステータス</th>
+    <td></td>
+  </tr>
+</table>
