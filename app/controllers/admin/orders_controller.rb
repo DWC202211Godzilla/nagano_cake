@@ -6,7 +6,6 @@ class Admin::OrdersController < ApplicationController
   def update
     @orders = Order.all
     @order = Order.find(params[:id])
-    
   end
 
 
