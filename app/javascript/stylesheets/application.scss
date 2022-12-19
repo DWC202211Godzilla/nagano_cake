@@ -20,9 +20,19 @@
   margin-top:15px;
 }
 
+body{
+  position: relative;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+
 .footer{
+  width:100%;
   height:40px;
   border-top:1px solid;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
 }
 
 .logo{
@@ -60,6 +70,32 @@
   position: absolute;
   top: 60px;
   right: 150px;
+}
+
+// テーブルの装飾
+table, tr, td {
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.table{
+  width:80%;
+  margin:auto;
+}
+
+// 背景をグレーにしたいインライン要素に指定
+.gray{
+  display:inline;
+  background-color:#e5e5e5;
+}
+
+// ペイジャーの親divをclass="pager"とする
+.pager{
+  width:300px;
+  height:20px;
+  margin:auto auto 10px auto;
+  text-align:center;
+  background-color:lightblue;
 }
 
 .home_search{
@@ -119,4 +155,68 @@
   height:250px;
   background-color:pink;
   margin:10px auto;
+}
+
+  // login画面のcss
+.login_top{
+  width:100px;
+  margin:0 0 0 100px;
+  text-align:center;
+}
+
+.admin_login_top{
+  width:200px;
+  margin:0 0 0 100px;
+  text-align:center;
+}
+
+.login_second{
+  width:300px;
+  margin:20px 20px 20px 150px;
+  text-align:center;
+}
+
+
+.login_items{
+  width:800px;
+  margin:auto;
+}
+
+
+.login_item{
+  width:400px;
+}
+
+.login_button{
+  padding-top:30px;
+}
+
+// signup画面のcss
+
+.sign_up_items{
+  width:900px;
+  margin:auto;
+}
+
+.sign_up_label{
+  text-align:right;
+}
+
+.sign_up_address{
+  width:500px;
+}
+
+.sign_up_button{
+  width:160px;
+}
+
+.signin_second{
+  width:200px;
+  margin:20px 20px 20px 150px;
+  text-align:center;
+}
+
+// adminのtop（注文履歴一覧）
+.admin_top{
+  margin:20px 20px 20px 150px;
 }
