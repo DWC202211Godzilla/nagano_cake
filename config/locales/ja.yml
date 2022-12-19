@@ -1,0 +1,8 @@
+ja:
+  enums:
+    order:
+      status:
+       waiting: "支払待ち"
+       paid_up: "支払済み"
+       preparing: "発送準備中"
+       shipped: "発送済み"

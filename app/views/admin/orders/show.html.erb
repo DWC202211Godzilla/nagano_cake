@@ -1,4 +1,8 @@
 <h2>注文履歴一覧</h2>
+<%= form_with model: @order, url: admin_order_path, method: :patch,local: true do |f| %>
+  <%= f.select :status. Order.statuses.keys, class: "status" %>
+  <%= f.sbmit "更新", class: "btn btn-outline-success" %>
+<% end %>
 <table class="table">
   <tr>
     <th>購入日時</th>
