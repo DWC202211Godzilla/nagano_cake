@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :customer
 
+
   #支払方法選択
   enum payment_method:{
     credit_card: 0,
@@ -14,4 +15,7 @@ class Order < ApplicationRecord
     preparing: 2,
     shipped: 3
   }
+
+  has_many :order_details
+
 end

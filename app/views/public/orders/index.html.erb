@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="mt-5 ml-5">注文履歴一覧</h2>
+  <div class="row">
+    <div class="col-12 mt-3">
+      <table class="table table-active table-bordered">
+        <tr>
+          <td class="border border-dark">注文日</td>
+          <td class="border border-dark">配送先</td>
+          <td class="border border-dark">注文商品</td>
+          <td class="border border-dark">支払金額</td>
+          <td class="border border-dark">ステータス</td>
+          <td class="border border-dark">注文詳細</td>
+        </tr>
+        <% @orders.each do |order| %>
+          <tr>
+            <td class="border border-dark table-light"><%= order.create_at %></td>
+            <td class="border border-dark table-light"></td>
+            <td class="border border-dark table-light"></td>
+            <td class="border border-dark table-light"></td>
+            <td class="border border-dark table-light"></td>
+            <td class="border border-dark table-light"></td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
