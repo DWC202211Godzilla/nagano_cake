@@ -1,5 +1,5 @@
 <div class="login_top">
-  <h5>新規登録</h5>
+  <h5 class="gray">新規登録</h5>
 </div>
 
 <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
@@ -61,6 +61,6 @@
 <% end %>
 
 <div class="signin_second">
-  <h6>既に登録済みの方</h6>
+  <h6 class="gray">既に登録済みの方</h6>
 </div>
 <div class="sign_up_items"><%= link_to "こちら", new_customer_session_path %>からログインしてください。</div>

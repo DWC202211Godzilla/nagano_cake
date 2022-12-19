@@ -74,8 +74,28 @@ body{
 
 // テーブルの装飾
 table, tr, td {
-    border-collapse: collapse;
-    padding: 5px;
+  border-collapse: collapse;
+  padding: 5px;
+}
+
+.table{
+  width:80%;
+  margin:auto;
+}
+
+// 背景をグレーにしたいインライン要素に指定
+.gray{
+  display:inline;
+  background-color:#e5e5e5;
+}
+
+// ペイジャーの親divをclass="pager"とする
+.pager{
+  width:300px;
+  height:20px;
+  margin:auto auto 10px auto;
+  text-align:center;
+  background-color:lightblue;
 }
 
 .home_search{
@@ -140,27 +160,22 @@ table, tr, td {
   // login画面のcss
 .login_top{
   width:100px;
-  hight:20px;
   margin:0 0 0 100px;
-  background-color:#e5e5e5;
   text-align:center;
 }
 
 .admin_login_top{
   width:200px;
-  hight:20px;
   margin:0 0 0 100px;
-  background-color:#e5e5e5;
   text-align:center;
 }
 
 .login_second{
   width:300px;
-  hight:17px;
   margin:20px 20px 20px 150px;
-  background-color:#e5e5e5;
   text-align:center;
 }
+
 
 .login_items{
   width:800px;
@@ -197,8 +212,11 @@ table, tr, td {
 
 .signin_second{
   width:200px;
-  hight:17px;
   margin:20px 20px 20px 150px;
-  background-color:#e5e5e5;
   text-align:center;
+}
+
+// adminのtop（注文履歴一覧）
+.admin_top{
+  margin:20px 20px 20px 150px;
 }
