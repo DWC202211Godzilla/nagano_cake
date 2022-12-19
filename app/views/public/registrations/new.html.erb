@@ -1,4 +1,4 @@
-<div class="sign_up_top">
+<div class="login_top">
   <h5>新規登録</h5>
 </div>
 
@@ -6,18 +6,25 @@
 
 
   <table class="sign_up_items">
+    <colgroup>
+      <col width="150px">
+      <col width="40px">
+      <col width="150px">
+      <col width="30px">
+      <col width="150px">
+    </colgroup>
     <tr>
       <th>名前</th>
-      <th><%= f.label :family_name,"(姓)" %></th>
+      <th class="sign_up_label"><%= f.label :family_name,"(姓)" %></th>
       <td><%= f.text_field :family_name %></td>
-      <th><%= f.label :personal_name,"(名)" %></th>
+      <th class="sign_up_label"><%= f.label :personal_name,"(名)" %></th>
       <td><%= f.text_field :personal_name %></td>
     </tr>
     <tr>
       <th>フリガナ</th>
-      <th><%= f.label :family_name_kana,"(セイ)" %></th>
+      <th class="sign_up_label"><%= f.label :family_name_kana,"(セイ)" %></th>
       <td><%= f.text_field :family_name_kana %></td>
-      <th><%= f.label :personal_name_kana,"(メイ)" %></th>
+      <th class="sign_up_label"><%= f.label :personal_name_kana,"(メイ)" %></th>
       <td><%= f.text_field :personal_name_kana %></td>
     </tr>
     <tr>
@@ -30,7 +37,7 @@
     </tr>
     <tr>
       <th colspan="2">住所</th>
-      <td colspan="3"><%= f.text_field :address %></td>
+      <td colspan="3"><%= f.text_field :address , class:"sign_up_address" %></td>
     </tr>
     <tr>
       <th colspan="2">電話番号(ハイフンなし)</th>
@@ -45,12 +52,15 @@
       <td colspan="3"><%= f.password_field :password_confirmation, autocomplete: "new-password" %></td>
     </tr>
     <tr>
-      <th></th>
-      <td class="login_button"><button class="btn btn-success" type="submit">新規登録</button></td>
+      <th colspan="2"></th>
+      <td ><button class="btn btn-success sign_up_button" type="submit">新規登録</button></td>
+      <td colspan="2"></td>
     </tr>
   </table>
 
-
 <% end %>
 
-<%= render "public/shared/links" %>
+<div class="signin_second">
+  <h6>既に登録済みの方</h6>
+</div>
+<div class="sign_up_items"><%= link_to "こちら", new_customer_session_path %>からログインしてください。</div>
