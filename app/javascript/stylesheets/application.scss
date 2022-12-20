@@ -10,7 +10,7 @@
 .header{
   width:100%;
   hight:80px;
-  padding: 15px 0;
+  padding: 40px 0;
   position: relative;
   text-align:center;
   border-bottom:1px solid;
@@ -45,7 +45,9 @@ body{
 }
 
 .header_message{
-  line-height:80px;
+  position:fixed;
+  top:30px;
+  left:500px;
 }
 
 .header_items{
