@@ -28,15 +28,15 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :items, only:[:index, :show]
 
-    get 'customers/my_page' => 'public/customers#show'
-    get 'customers/information/edit' => 'public/customers#edit'
-    patch 'customers/information' => 'public/customers#update'
-    get 'customers/unsubscribe' => 'public/customers#unsubscribe'
-    patch 'customers/withdraw' => 'public/customers#withdrawal'
+    get 'customers/my_page' => 'customers#show'
+    get 'customers/information/edit' => 'customers#edit'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/unsubscribe' => 'customers#unsubscribe'
+    patch 'customers/withdraw' => 'customers#withdrawal'
 
     resources :cart_items,only:[:index, :update, :destroy, :create]
 
-    delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+    delete 'cart_items/destroy_all' => 'cart_items#destroy_all'
 
     post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'

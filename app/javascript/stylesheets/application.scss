@@ -10,7 +10,7 @@
 .header{
   width:100%;
   hight:80px;
-  padding: 15px 0;
+  padding: 40px 0;
   position: relative;
   text-align:center;
   border-bottom:1px solid;
@@ -18,6 +18,7 @@
 
 .main{
   margin-top:15px;
+  padding-left:30px;
 }
 
 body{
@@ -45,7 +46,9 @@ body{
 }
 
 .header_message{
-  line-height:80px;
+  position:fixed;
+  top:30px;
+  left:500px;
 }
 
 .header_items{
@@ -214,6 +217,19 @@ table, tr, td {
   width:200px;
   margin:20px 20px 20px 150px;
   text-align:center;
+}
+
+//customer用ページ
+
+.my_page_table, .my_page_table td {
+  border-collapse: collapse;
+  border:1px solid;
+}
+
+.my_page_table th{
+  background-color: #efefef;
+  border-collapse: collapse;
+  border:1px solid;
 }
 
 // adminのtop（注文履歴一覧）
