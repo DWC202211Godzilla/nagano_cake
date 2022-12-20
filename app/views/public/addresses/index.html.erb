@@ -1,7 +1,7 @@
 <h4 class="mt-3">配送先登録 / 一覧</h4>
 
 <!--住所登録フォーム-->
-<%= form_with model: @address, url: addresses_path do |f| %>
+<%= form_with model: @address, url: addresses_path, method: :post do |f| %>
 <div class="form-group">
   <label for="post_code">郵便番号</label><br>
   <%= f.text_field :post_code %>
@@ -21,9 +21,9 @@
 
 
 <!--住所一覧-->
-<table>
+<table border="1">
   <thead>
-    <tr>
+    <tr bgcolor="gray">
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
@@ -37,6 +37,7 @@
       <td><%= address.post_code %></td>
       <td><%= address.addresses %></td>
       <td><%= address.name %></td>
+      <td><%= link_to "編集する", edit_address_path(@address), class: "btn btn-sm btn-succsess" %>  <%= link_to "削除する", address_path(@address),class: "btn btn-sm btn-danger",method: :delete, "date-confirm" => "本当に削除しますか" %></td>
     </tr>
     <% end %>
   </tbody>
