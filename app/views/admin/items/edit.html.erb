@@ -1,2 +1,25 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class='container'>
+  <div class='row justify-content-center'>
+    <div class='mx-auto col-7'>
+      <h4 class="gray">商品編集</h4>
+      <%= form_with model: @item, url:admin_items_path, method: :patch do |f| %>
+      <div class="row g-3 align-items-center">
+        <h6>商品画像</h6>
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="row g-3 align-items-center">
+        <h6>商品名</h6>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="row g-3 align-items-center">
+        <h6>商品説明</h6>
+        <%= f.text_area :introduction, class: 'form-control' %>
+        <h6>ジャンル</h6>
+        <h6>税抜価格</h6>
+        <%= f.text_field :price, class: 'form-control' %>
+        <h6>販売ステータス</h6>
+        <%= f.submit '新規登録' %>
+      <% end %>
+    </div>
+  </div>
+</div>
