@@ -18,6 +18,7 @@
 
 .main{
   margin-top:15px;
+  padding-left:30px;
 }
 
 body{
@@ -216,6 +217,19 @@ table, tr, td {
   width:200px;
   margin:20px 20px 20px 150px;
   text-align:center;
+}
+
+//customer用ページ
+
+.my_page_table, .my_page_table td {
+  border-collapse: collapse;
+  border:1px solid;
+}
+
+.my_page_table th{
+  background-color: #efefef;
+  border-collapse: collapse;
+  border:1px solid;
 }
 
 // adminのtop（注文履歴一覧）
