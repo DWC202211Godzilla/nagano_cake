@@ -13,12 +13,34 @@
         </tr>
         <% @orders.each do |order| %>
           <tr>
-            <td class="border border-dark table-light"><%= order.create_at %></td>
-            <td class="border border-dark table-light"></td>
-            <td class="border border-dark table-light"></td>
-            <td class="border border-dark table-light"></td>
-            <td class="border border-dark table-light"></td>
-            <td class="border border-dark table-light"></td>
+            <td class="border border-dark table-light"><%= order.created_at.strftime("%Y/%m/%d") %></td>
+            <td class="border border-dark table-light">
+              <%= order.postal_code %><br>
+              <%= order.address %><br>
+              <%= order.name %>
+            </td>
+            <td class="border border-dark table-light">
+              <% order.order_details.each do |detail| %>
+                <%= detail.item.name %>
+              <% end %>
+            </td>
+            <td class="border border-dark table-light"><%= order.total_payment %></td>
+            <td class="border border-dark table-light">
+              <% if order.status == "waiting" %>
+                入金待ち
+              <% elsif order.status == "paid_up" %>
+                入金確認
+              <% elsif order.status == "preparing" %>
+                製作中
+              <% elsif order.status == "shipped" %>
+                発送準備中
+              <% else %>
+                発送済み
+              <% end %>
+            </td>
+            <td class="border border-dark table-light">
+              <%= link_to "表示する", order_path(order), class: "btn btn-sm btn-primary" %>
+            </td>
           </tr>
         <% end %>
       </table>
