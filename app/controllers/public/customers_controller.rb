@@ -12,5 +12,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdrawal
+    current_customer.is_deleted=true
+    redirect_to root_path
   end
 end
