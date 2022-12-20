@@ -46,7 +46,7 @@
         <tr>
           <td class="border border-0 pr-0"><strong>支払方法</strong></td>
           <td class="border border-0 pl-0">
-            <% if @order.payment_method == 0 %>
+            <% if @order.payment_method == "credit_card" %>
               クレジットカード
             <% else %>
               銀行振込

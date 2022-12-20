@@ -1,4 +1,6 @@
 class Public::OrdersController < ApplicationController
+  before_action :confirm_match? , only: [:show]
+
   def new
     @order = Order.new
   end
@@ -10,13 +12,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.shipping_cost = 800
     @order.total_payment = @order.shipping_cost + @total
-    @order.status = 0
-
-    if params[:order][:payment_method] == "credit_card"
-      @order.payment_method = 0
-    else
-      @order.payment_method = 1
-    end
+    @order.status = "waiting"
 
     if params[:order][:address_number] == "1"
       @order.name = current_customer.family_name + current_customer.personal_name
@@ -67,9 +63,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all.order(created_at: :desc)
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   private
@@ -80,5 +78,11 @@ class Public::OrdersController < ApplicationController
 
   def address_params
     params.require(:order).permit(:name,:address)
+  end
+
+  def confirm_match?
+    if params[:id] == "confirm"
+      redirect_to new_order_path
+    end
   end
 end
