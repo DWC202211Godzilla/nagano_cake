@@ -1,29 +1,38 @@
 <div class="admin_top">
-  <h5 class="gray">商品一覧</h5>
+  <h5 class="gray">注文履歴一覧</h5>
 </div>
 
 <table class="table">
   <thead class="thead-light">
     <tr>
-      <th scope="col" width="10%">商品ID</th>
-      <th scope="col" width="30%">商品名</th>
-      <th scope="col" width="10%">税抜価格</th>
-      <th scope="col" width="30%">ジャンル</th>
-      <th scope="col" width="20%">ステータス</th>
+      <th scope="col" width="25%">購入日時</th>
+      <th scope="col" width="25%">購入者</th>
+      <th scope="col" width="25%">注文個数</th>
+      <th scope="col" width="25%">注文ステータス</th>
     </tr>
   </thead>
 
   <tbody>
-    <tr>
-      <td>商品id</td>
-      <td>商品名</td>
-      <td>税抜き価格</td>
-      <td>ジャンル</td>
-      <td>ステータス</td>
-    </tr>
+    <% if @orders != nil %>
+      <%= @orders.each do |a_order|%>
+      <tr>
+        <td><%= a_order.created_at %></td>
+        <td><%= a_order.customer.name %></td>
+        <td>
+          <% amounts=a_order.order_details.amount %>
+          <% i=0 %>
+          <%= amounts.each do |un_amount| %>
+            <% i=i+un_amount %>
+          <% end %>
+          <%= i %>
+        </td>
+        <td><%= a_order.status %></td>
+      </tr>
+      <% end %>
+    <% end %>
   </tbody>
-
 </table>
+
 <div class="pager">
-<%#= paginate post_images %>
+  <%= paginate @orders %>
 </div>
