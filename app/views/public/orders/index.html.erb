@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mt-5 ml-5">注文履歴一覧</h2>
+  <h2 class="mt-5 ml-5 gray">注文履歴一覧</h2>
   <div class="row">
     <div class="col-12 mt-3">
       <table class="table table-active table-bordered">
@@ -26,17 +26,7 @@
             </td>
             <td class="border border-dark table-light"><%= order.total_payment %></td>
             <td class="border border-dark table-light">
-              <% if order.status == "waiting" %>
-                入金待ち
-              <% elsif order.status == "paid_up" %>
-                入金確認
-              <% elsif order.status == "preparing" %>
-                製作中
-              <% elsif order.status == "shipped" %>
-                発送準備中
-              <% else %>
-                発送済み
-              <% end %>
+              <%= render "public/orders/status" , order: order %>
             </td>
             <td class="border border-dark table-light">
               <%= link_to "表示する", order_path(order), class: "btn btn-sm btn-primary" %>

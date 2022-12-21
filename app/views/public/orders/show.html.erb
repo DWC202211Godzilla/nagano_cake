@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mt-5 ml-5">注文履歴詳細</h2>
+  <h2 class="mt-5 ml-5 gray">注文履歴詳細</h2>
   <div class="row my-3">
     <div class="col-7">
       <strong>注文情報</strong>
@@ -20,26 +20,16 @@
           <td class="border border-dark">支払方法</td>
           <td class="border border-dark table-light">
             <% if @order.payment_method == "credit_card" %>
-              クレジットカード
+              <%= Order.payment_methods_i18n[:credit_card] %>
             <% else %>
-              銀行振込
+              <%= Order.payment_methods_i18n[:transfer] %>
             <% end %>
           </td>
         </tr>
         <tr>
           <td class="border border-dark">ステータス</td>
           <td class="border border-dark table-light">
-            <% if @order.status == "waiting" %>
-              入金待ち
-            <% elsif @order.status == "paid_up" %>
-              入金確認
-            <% elsif @order.status == "preparing" %>
-              製作中
-            <% elsif @order.status == "shipped" %>
-              発送準備中
-            <% else %>
-              発送済み
-            <% end %>
+            <%= render "public/orders/status" , order: @order %>
           </td>
         </tr>
       </table>

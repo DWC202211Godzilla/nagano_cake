@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mt-5 ml-5">注文履歴詳細</h2>
+  <h2 class="mt-5 ml-5 gray">注文履歴詳細</h2>
   <div class="row mb-5 mt-5">
     <div class="col-7">
       <table class="table">
@@ -22,9 +22,9 @@
           <td class="border border-0"><strong>支払方法</strong></td>
           <td class="border border-0">
             <% if @order.payment_method == "credit_card" %>
-              クレジットカード
+              <%= Order.payment_methods_i18n[:credit_card] %>
             <% else %>
-              銀行振込
+              <%= Order.payment_methods_i18n[:transfer] %>
             <% end %>
           </td>
         </tr>
@@ -32,8 +32,8 @@
           <td class="border border-0"><strong>注文ステータス</strong></td>
           <td class="border border-0">
             <%= form_with model: @order, url: admin_order_path(@order),method: :patch do |f| %>
-              <%#= f.collection_select(:registered, @order.payment_method.all, :id ,:payment_method) %>
-              <%= f.submit "更新",class: "btn btn-sm btn-success" %>
+              <%= f.select :status, [[Order.statuses_i18n[:waiting],"waiting"],[Order.statuses_i18n[:paid_up],"paid_up"],[Order.statuses_i18n[:production],"production"],[Order.statuses_i18n[:preparing],"preparing"],[Order.statuses_i18n[:shipped],"shipped"]] %>
+              <%= f.submit "更新", name: "status" ,class: "btn btn-sm btn-success" %>
             <% end %>
           </td>
         </tr>
@@ -52,32 +52,36 @@
           <th class="table-active">製作ステータス</th>
           <th class="table-active"></th>
         </tr>
-        <%# @orders.each do |order| %>
+        <% @order_details.each do |detail| %>
           <tr>
-            <td><%=%></td>
-            <td><%=%></td>
-            <td><%=%></td>
-            <td><%=%></td>
-            <td><%=%></td>
-            <td><%=%></td>
+            <td><%= detail.item.name %></td>
+            <td><%= (detail.item.price * 1.1).to_s(:delimited) %></td>
+            <td><%= detail.amount %></td>
+            <td><%= (detail.item.price * 1.1 * detail.amount).to_s(:delimited) %></td>
+            <%= form_with model: @order, url: admin_order_path(@order),method: :patch do |f| %>
+              <td>
+                <%= f.select :making_status, [[detail.making_statuses_i18n[:production_not_possible],"production_not_possible"],[detail.making_statuses_i18n[:production_pending],"production_pending"],[detail.making_statuses_i18n[:in_production],"in_production"],[detail.making_statuses_i18n[:production_complete],"production_complete"]] %>
+              </td>
+              <td><%= f.submit "更新", name: "making_status" ,class: "btn btn-sm btn-success" %></td>
+            <% end %>
           </tr>
-        <%# end %>
+        <% end %>
       </table>
     </div>
 
     <div class="col-3">
-      <table>
+      <table class="table">
         <tr>
-          <td><strong>商品合計</strong></td>
-          <td>円</td>
+          <td class="border border-0"><strong>商品合計</strong></td>
+          <td class="border border-0"><%= "#{(@order.total_payment - @order.shipping_cost).to_s(:delimited)}円" %></td>
         </tr>
         <tr>
-          <td><strong>送料</strong></td>
-          <td>円</td>
+          <td class="border border-0"><strong>送料</strong></td>
+          <td class="border border-0"><%= "#{@order.shipping_cost}円" %></td>
         </tr>
         <tr>
-          <td><strong>請求金額合計</strong></td>
-          <td><strong>円</strong></td>
+          <td class="border border-0"><strong>請求金額合計</strong></td>
+          <td class="border border-0"><strong><%= "#{(@order.total_payment).to_s(:delimited)}円" %></strong></td>
         </tr>
       </table>
     </div>
