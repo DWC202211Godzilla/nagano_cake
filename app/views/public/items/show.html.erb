@@ -1,2 +1,15 @@
-<h1>Public::Items#show</h1>
-<p>Find me in app/views/public/items/show.html.erb</p>
+<div class='container'>
+  <div class='col-3'>
+    <h6>ジャンル検索</h6>
+  </div>
+  <div class='col-4'>
+    <%= image_tag @item.image, size:"300x300" %>
+  </div>
+  <div class='col-6'>
+    <h3><%= @item.name %></h3>
+    <p><%= @item.introduction %></p>
+    <h6>¥税込価格</h6>
+    <!--個数選択-->
+    <!--カートに入れる-->
+  </div>
+</div>
