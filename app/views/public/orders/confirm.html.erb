@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 class="mt-5 ml-5">注文情報確認</h2>
+  <h2 class="mt-5 ml-5 gray">注文情報確認</h2>
   <div class="row my-5">
 
     <div class="col-8">
@@ -47,9 +47,9 @@
           <td class="border border-0 pr-0"><strong>支払方法</strong></td>
           <td class="border border-0 pl-0">
             <% if @order.payment_method == "credit_card" %>
-              クレジットカード
+              <%= Order.payment_methods_i18n[:credit_card] %>
             <% else %>
-              銀行振込
+              <%= Order.payment_methods_i18n[:transfer] %>
             <% end %>
           </td>
         </tr>

@@ -19,7 +19,7 @@ class Public::OrdersController < ApplicationController
       @order.address = current_customer.address
       @order.postal_code = current_customer.post_code
     elsif params[:order][:address_number] == "2"
-      if Address.all.count != 0
+      if current_customer.addresses.all.count != 0
         @order.name = Address.find(params[:order][:registered]).name
         @order.address = Address.find(params[:order][:registered]).address
         @order.postal_code = Address.find(params[:order][:registered]).post_code
@@ -63,7 +63,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.all.order(created_at: :desc)
+    @orders = current_customer.orders.all.order(created_at: :desc)
   end
 
   def show
