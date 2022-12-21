@@ -5,8 +5,6 @@ class Item < ApplicationRecord
   validates :introduction,presence:true,length:{maximum:200}
   validates :price,numericality: {only_integer: true}
 
-  has_many :order_items
-
   has_many :order_details
   belongs_to :genre
 

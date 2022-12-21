@@ -2,35 +2,39 @@
   <div class='row justify-content-center'>
     <div class='mx-auto col-7'>
       <h4 class="gray">商品新規登録</h4>
-      <table>
-      <%= form_with model: @item, url:admin_items_path(@item.id), method: :post do |f| %>
+      <%= form_with model: @item, url: admin_items_path, method: :post do |f| %>
       <div class="form-group">
-        <h6>商品画像</h6>
+        <%= f.label :image, '商品画像' %>
         <%= f.file_field :image, accept: "image/*" %>
       </div>
 
       <div class='form-group'>
-        <h6>商品名</h6>
+        <%= f.label :name, '商品名' %>
         <%= f.text_field :name, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <h6>商品説明</h6>
+        <%= f.label :introduction, '商品説明' %>
         <%= f.text_area :introduction, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <h6>ジャンル</h6>
+        <%= f.label :genre_id, 'ジャンル' %>
+        <%= f.collection_select :genre_id, Genre.all, :id, :name, { prompt: '選択してください' }, class: 'form-control' %>
       </div>
 
       <div class="form-group">
-        <h6>税抜価格</h6>
+        <%= f.label :price, '税抜価格' %>
         <%= f.text_field :price, class: 'form-control' %>
       </div>
+
       <div class="form-group">
-        <h6>販売ステータス</h6>
+        <%= f.label :is_active, '販売ステータス' %>
+          <%= f.label :is_active, '販売中', value: 1 %>
+          <%= f.radio_button :is_active, '1' %>
+          <%= f.label :is_active, '販売停止中', value: 0 %>
+          <%= f.radio_button :is_active, '0' %>
       </div>
-      </table>
         <%= f.submit '新規登録' %>
       <% end %>
     </div>
