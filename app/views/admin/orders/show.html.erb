@@ -15,7 +15,14 @@
                 <%= order.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
               <% end %>
               </td>
-            <td class="table-light"><%= order.order_details.count %></td><!--　←多分違う　-->
+            <td class="table-light">
+              <% order.order_details.each do |detail| %>
+                <% @amount += detail.amount  %>
+                <% if detail.amount == nil %>
+                  <%= @amount %>
+                <% end %>
+              <% end %>
+            </td>
             <td class="table-light">
               <%= render "public/orders/status" , order: order %>
             </td>
@@ -26,7 +33,7 @@
   </div>
   <div class="row">
     <div class="pager my-5">
-      <%= paginate @orders %>
+      <%#= paginate @orders %>
     </div>
   </div>
 </div>

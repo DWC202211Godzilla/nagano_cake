@@ -24,17 +24,19 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-    @cart_item = current_customer.cart_items.new(cart_item_params)
+    @cart_item = CartItem.new(cart_item_params)
+    @item = Item.find(@cart_item.item_id)
+
     if @cart_item.save
-      redirect_to new_order_path
+      redirect_to cart_items_path
     else
-      render :index
+      redirect_to request.referer
     end
   end
 
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:amount)
+    params.require(:cart_item).permit(:amount,:item_id,:customer_id)
   end
 end

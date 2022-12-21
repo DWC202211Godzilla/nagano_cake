@@ -1,5 +1,4 @@
 class CartItem < ApplicationRecord
-  belongs_to :order
   belongs_to :item
 
   #税込の計算メソッド
