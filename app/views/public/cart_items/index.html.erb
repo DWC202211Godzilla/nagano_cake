@@ -1,2 +1,59 @@
-<h1>Public::CartItems#index</h1>
-<p>Find me in app/views/public/cart_items/index.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-4">
+      <h2 class="ml-5 gray">ショッピングカート</h2>
+    </div>
+    <div class="offset-5 col-3">
+      <%= link_to "カートを空にする", cart_items_destroy_all_path , method: :delete , "data-confirm" => "ほんまに空にするで？",class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <table class="table table-active table-bordered">
+      <tr>
+        <td class="border border-dark">商品名</td>
+        <td class="border border-dark">単価(税込)</td>
+        <td class="border border-dark">数量</td>
+        <td class="border border-dark">小計</td>
+        <td class="border border-dark"></td>
+      </tr>
+      <% @cart_items.each do |cart| %>
+        <tr>
+          <td class="border border-dark table-light">
+            <%= cart.item.name %>
+          </td>
+          <td  class="border border-dark table-light"><%= (cart.item.price * 1.1).to_s(:delimited) %></td>
+          <%= form_with model: cart , url: cart_item_path(cart),method: :patch do |f| %>
+            <td class="border border-dark table-light">
+              <%= f.select :amount, (1..10) %>
+            </td>
+          <% end %>
+          <td class="border border-dark table-light"><%= (cart.item.price * 1.1 * cart.amount).to_s(:delimited) %></td>
+          <td class="border border-dark table-light"><%= link_to "削除する", cart_item_path(cart),method: :delete,class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-3 ml-5">
+      <%= link_to "買い物を続ける", items_path, class: "btn btn-primary" %>
+    </div>
+    <div class="offset-4 col-4">
+      <table class="table table-active table-bordered">
+        <tr>
+          <td class="border border-dark">合計金額</td>
+          <td class="border border-dark table-light"><%=  %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="mx-auto">
+      <%= form_with model: @cart_item , url: cart_items_path , method: :post do |f| %>
+        <%= f.hidden_field :amount %>
+        <%= f.submit "情報入力に進む", class: "btn btn-success btn-lg" %>
+      <% end %>
+    </div>
+  </div>
+</div>
