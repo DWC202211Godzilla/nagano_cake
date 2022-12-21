@@ -17,7 +17,7 @@
       <% @orders.each do |a_order|%>
       <tr>
         <td><%= a_order.created_at %></td>
-        <td><%= a_order.customer.name %></td>
+        <td><%= a_order.customer.family_name %>&nbsp;<%= a_order.customer.personal_name %></td>
         <td>
           <% amounts=a_order.order_details.amount %>
           <% i=0 %>
@@ -26,7 +26,9 @@
           <% end %>
           <%= i %>
         </td>
-        <td><%= a_order.status %></td>
+        <td>
+          <%= a_order.select :status, [[Order.statuses_i18n[:waiting],"waiting"],[Order.statuses_i18n[:paid_up],"paid_up"],[Order.statuses_i18n[:production],"production"],[Order.statuses_i18n[:preparing],"preparing"],[Order.statuses_i18n[:shipped],"shipped"]] %>
+        </td>
       </tr>
       <% end %>
     <% end %>
