@@ -15,32 +15,32 @@
     <tr>
       <th>名前</th>
       <th class="sign_up_label"><%= f.label :family_name,"(姓)" %></th>
-      <td><%= f.text_field :family_name %></td>
+      <td><%= f.text_field :family_name, autofocus: true, class:"rounded" %></td>
       <th class="sign_up_label"><%= f.label :personal_name,"(名)" %></th>
-      <td><%= f.text_field :personal_name %></td>
+      <td><%= f.text_field :personal_name, class:"rounded" %></td>
     </tr>
     <tr>
       <th>フリガナ</th>
       <th class="sign_up_label"><%= f.label :family_name_kana,"(セイ)" %></th>
-      <td><%= f.text_field :family_name_kana %></td>
+      <td><%= f.text_field :family_name_kana, class:"rounded" %></td>
       <th class="sign_up_label"><%= f.label :personal_name_kana,"(メイ)" %></th>
-      <td><%= f.text_field :personal_name_kana %></td>
+      <td><%= f.text_field :personal_name_kana, class:"rounded" %></td>
     </tr>
     <tr>
       <th colspan="2">郵便番号</th>
-      <td colspan="3"><%= f.text_field :post_code %></td>
+      <td colspan="3"><%= f.text_field :post_code, class:"rounded" %></td>
     </tr>
     <tr>
       <th colspan="2">住所</th>
-      <td colspan="3"><%= f.text_field :address , class:"sign_up_address" %></td>
+      <td colspan="3"><%= f.text_field :address , class:"sign_up_address rounded" %></td>
     </tr>
     <tr>
       <th colspan="2">電話番号</th>
-      <td colspan="3"><%= f.text_field :phone_number %></td>
+      <td colspan="3"><%= f.text_field :phone_number, class:"rounded" %></td>
     </tr>
     <tr>
       <th colspan="2">メールアドレス</th>
-      <td colspan="3"><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      <td colspan="3"><%= f.email_field :email, class:"rounded" %></td>
     </tr>
     <tr>
       <th colspan="2"></th>
