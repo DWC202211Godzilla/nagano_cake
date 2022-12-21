@@ -14,7 +14,7 @@
 
   <tbody>
     <% if @orders != nil %>
-      <%= @orders.each do |a_order|%>
+      <% @orders.each do |a_order|%>
       <tr>
         <td><%= a_order.created_at %></td>
         <td><%= a_order.customer.name %></td>
