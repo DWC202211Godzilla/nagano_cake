@@ -8,6 +8,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def after_sign_up_path_for(resource_or_scope)
+    customers_my_page_path(resource_or_scope)
+  end
+
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
         admin_path
@@ -17,7 +22,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource_or_scope)
-    if resource_or_scope == :user
+    if resource_or_scope == :customer
         root_path
     elsif resource_or_scope == :admin
         new_admin_session_path
