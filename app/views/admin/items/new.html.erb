@@ -27,10 +27,13 @@
         <%= f.label :price, '税抜価格' %>
         <%= f.text_field :price, class: 'form-control' %>
       </div>
-      
+
       <div class="form-group">
         <%= f.label :is_active, '販売ステータス' %>
-
+          <%= f.label :is_active, '販売中', value: 1 %>
+          <%= f.radio_button :is_active, '1' %>
+          <%= f.label :is_active, '販売停止中', value: 0 %>
+          <%= f.radio_button :is_active, '0' %>
       </div>
         <%= f.submit '新規登録' %>
       <% end %>
