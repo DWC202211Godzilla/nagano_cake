@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_customer!, except: [:top, :index, :show, :about]
 
   protect_from_forgery with: :exception
   before_action :configre_permitted_parameters, if: :devise_controller?
@@ -9,9 +10,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def after_sign_up_path_for(resource_or_scope)
-    customers_my_page_path(resource_or_scope)
-  end
 
   def after_sign_in_path_for(resource_or_scope)
     if resource_or_scope.is_a?(Admin)
