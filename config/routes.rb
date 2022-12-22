@@ -42,6 +42,8 @@ Rails.application.routes.draw do
     resources :orders, only:[:new,:create, :index, :show]
 
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
+
+    post 'customers/search' => 'customers#search'
   end
 
   namespace :admin do
