@@ -1,33 +1,28 @@
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-12 m-3">
-    <span style="background-color:gainsboro">配送先登録 / 一覧</span>
-    </div>
-  </div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-7 mx-auto">
+    <h4 class="gray">配送先登録 / 一覧</h4>
 
-  <div class ="row">
-    <div class="col-md-12 m-3">
     <!--住所登録フォーム-->
-    <%= form_with model: @address, url: address_path, method: :post do |f| %>
+    <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
     <div class="form-group">
-      <label for="delivery_post_code">郵便番号(ハイフンなし)</label>
-      <%= f.number_field :post_code %>
+      <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "mr-5" %>
+      <%= f.number_field :post_code, placeholder: "0000000", class: "rounded mb-3 ml-3",size: 40 %>
     </div>
     <div class="form-group">
-      <lavbel for="delivery_addresses">住所</lavbel>
-      <%= f.text_field :address %>
+      <%= f.label :address, "住所", class: "mr-5" %>
+      <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded mb-3 ml-3",size: 40  %>
     </div>
     <div class="form-group">
-      <label for="delivery_address_name">宛名</label>
-      <%= f.text_field :name %>
-      <%= f.submit '新規登録', class: "btn btn-sm btn-success" %>
+      <%= f.label :name, "宛名", class: "mr-5" %>
+      <%= f.text_field :name, placeholder: "令和道子", class: "rounded mb-3 ml-3",size: 40 %>
+      <%= f.submit '新規登録', class: "btn btn-sm btn-success ml-5" %>
     </div>
     <% end %>
     </div>
   </div>
 
-<div class ="row">
-  <div class="col-md-12 m-3">
+<div class="pull-left">
 <!--住所一覧-->
     <table border="1" cellpadding="10">
       <thead>
@@ -51,5 +46,4 @@
       </tbody>
     </table>
     </div>
-  </div>
 </div>

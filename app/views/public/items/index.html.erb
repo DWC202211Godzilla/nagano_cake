@@ -1,7 +1,7 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
-    <div class='col-md-3'>
-      <div class='home_search'>
+    <div class='col-md-2 mr-10'>
+      <div class='home_search mr-5'>
         <p class='home_serch_top'>ジャンル検索</p>
         <div class='home_serch_list'>
           <% if @genres != nil %>
@@ -12,9 +12,10 @@
         </div>
       </div>
     </div>
-  <div class='col-md-9'>
-  <h3 class='font-weight-bold'>商品一覧</h3>
-    <div class='home_items_box'>
+  <div class='col-md-10'>
+  <h3 class='font-weight-bold ml-5'>商品一覧</h3>
+  <div class='d-flex'>
+    <div class='home_items_box flex-wrap ml-5'>
       <% if @items != nil %>
         <% @items.each do |a_item| %>
           <div class='home_items'>
@@ -29,4 +30,6 @@
       <% end %>
     </div>
   </div>
+  </div>
 </div>
+

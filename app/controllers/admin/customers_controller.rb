@@ -20,10 +20,19 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
+  def search
+    @items=Item.search(search_params)
+  end
+
+
   private
 
   def customer_params
     params.require(:customer).permit(:family_name, :personal_name, :family_name_kana, :personal_name_kana, :email, :post_code, :address, :phone_number, :is_deleted)
   end
+
+  # def search_params
+  #   params.permit(:search)
+  # end
 
 end

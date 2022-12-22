@@ -8,7 +8,7 @@
   <div class ="row">
     <div class="col-md-12 m-3">
     <!--住所変更フォーム-->
-    <%= form_with model: @address, url: address_path, method: :patch do |f| %>
+    <%= form_with model: @address, url: address_path(@address), method: :patch do |f| %>
     <div class="form-group">
       <label for="delivery_post_code">郵便番号(ハイフンなし)</label>
       <%= f.number_field :post_code %>

@@ -67,7 +67,12 @@
           </div>
         <% end %>
       </div>
-        <div class='header_search'>検索機能(余力があれば)</div>
+        <div class='header_search'>
+          <%= form_tag(customers_search_path, method: :post) do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', name: :search_bottun %>
+          <% end %>
+        </div>
 
     </header>
     <main class='main'>
