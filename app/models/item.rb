@@ -15,5 +15,13 @@ class Item < ApplicationRecord
     end
     image
   end
+  
+  def self.search(search)
+    if search != nil
+      Item.where(['name LIKE ?', "%#{search}"])
+    else
+      Item.all
+    end 
+  end 
 
 end
