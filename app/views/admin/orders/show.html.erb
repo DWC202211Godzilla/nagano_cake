@@ -1,89 +1,39 @@
 <div class="container">
-  <h2 class="mt-5 ml-5 gray">注文履歴詳細</h2>
-  <div class="row mb-5 mt-5">
-    <div class="col-7">
-      <table class="table">
+  <h2 class="mt-5 ml-5 gray">注文履歴一覧</h2>
+  <div class="row mt-5">
+    <div class="col-12">
+      <table class="table table-active">
         <tr>
-          <td class="border border-0"><strong>購入者</strong></td>
-          <td class="border border-0"><%= @order.name %></td>
+          <th>購入日時</th>
+          <th>注文個数</th>
+          <th>注文ステータス</th>
         </tr>
-        <tr>
-          <td class="border border-0"><strong>注文日</strong></td>
-          <td class="border border-0"><%= @order.created_at.strftime("%Y/%m/%d") %></td>
-        </tr>
-        <tr>
-          <td class="border border-0"><strong>配送先</strong></td>
-          <td class="border border-0">
-            <%= "〒#{@order.postal_code} #{@order.address}" %><br>
-            <%= @order.name %>
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-0"><strong>支払方法</strong></td>
-          <td class="border border-0">
-            <% if @order.payment_method == "credit_card" %>
-              <%= Order.payment_methods_i18n[:credit_card] %>
-            <% else %>
-              <%= Order.payment_methods_i18n[:transfer] %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td class="border border-0"><strong>注文ステータス</strong></td>
-          <td class="border border-0">
-            <%= form_with model: @order, url: admin_order_path(@order),method: :patch do |f| %>
-              <%= f.select :status, [[Order.statuses_i18n[:waiting],"waiting"],[Order.statuses_i18n[:paid_up],"paid_up"],[Order.statuses_i18n[:production],"production"],[Order.statuses_i18n[:preparing],"preparing"],[Order.statuses_i18n[:shipped],"shipped"]] %>
-              <%= f.submit "更新", name: "status" ,class: "btn btn-sm btn-success" %>
-            <% end %>
-          </td>
-        </tr>
-      </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-8">
-      <table class="table">
-        <tr>
-          <th class="table-active">商品名</th>
-          <th class="table-active">単価（税込）</th>
-          <th class="table-active">数量</th>
-          <th class="table-active">小計</th>
-          <th class="table-active">製作ステータス</th>
-          <th class="table-active"></th>
-        </tr>
-        <% @order_details.each do |detail| %>
+        <% @orders.each do |order| %>
           <tr>
-            <td><%= detail.item.name %></td>
-            <td><%= ((detail.item.price * 1.1).round(ndigits = 0)).to_s(:delimited) %></td>
-            <td><%= detail.amount %></td>
-            <td><%= ((detail.item.price * 1.1 * detail.amount).round(ndigits = 0)).to_s(:delimited) %></td>
-            <%= form_with model: detail, url: admin_order_detail_path(detail),method: :patch do |f| %>
-              <td>
-                <%= f.select :making_status, [[OrderDetail.making_statuses_i18n[:production_not_possible],"production_not_possible"],[OrderDetail.making_statuses_i18n[:production_pending],"production_pending"],[OrderDetail.making_statuses_i18n[:in_production],"in_production"],[OrderDetail.making_statuses_i18n[:production_complete],"production_complete"]] %>
+            <td class="table-light">
+              <%= link_to admin_order_path(order), method: :patch, class: "text-dark" do %>
+                <%= order.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
+              <% end %>
               </td>
-              <td><%= f.submit "更新", name: "making" ,class: "btn btn-sm btn-success" %></td>
-            <% end %>
+            <td class="table-light">
+              <% order.order_details.each do |detail| %>
+                <% @amount += detail.amount  %>
+                <% if detail.amount == nil %>
+                  <%= @amount %>
+                <% end %>
+              <% end %>
+            </td>
+            <td class="table-light">
+              <%= render "public/orders/status" , order: order %>
+            </td>
           </tr>
         <% end %>
       </table>
     </div>
-
-    <div class="col-4">
-      <table class="table">
-        <tr>
-          <td class="border border-0"><strong>商品合計</strong></td>
-          <td class="border border-0"><%= "#{(@order.total_payment - @order.shipping_cost).to_s(:delimited)}円" %></td>
-        </tr>
-        <tr>
-          <td class="border border-0"><strong>送料</strong></td>
-          <td class="border border-0"><%= "#{@order.shipping_cost}円" %></td>
-        </tr>
-        <tr>
-          <td class="border border-0"><strong>請求金額合計</strong></td>
-          <td class="border border-0"><strong><%= "#{(@order.total_payment).to_s(:delimited)}円" %></strong></td>
-        </tr>
-      </table>
+  </div>
+  <div class="row">
+    <div class="pager my-5">
+      <%#= paginate @orders %>
     </div>
   </div>
 </div>
