@@ -1,19 +1,15 @@
 <div class='container'>
-  <div class="row">
+  <div class="row mt-5">
     <div class='col-3'>
       <h6>ジャンル検索</h6>
     </div>
-    <div class='col-4'>
-      <%= image_tag @item.image, size:"300x300" %>
+    <div class='col-3'>
+      <%= image_tag @item.image, size: "250x200" %>
     </div>
     <div class='col-6'>
       <h3><%= @item.name %></h3>
       <p><%= @item.introduction %></p>
-      <h6>¥税込価格</h6>
-    </div>
-  </div>
-
-    <div class="row">
+      <h6><strong><%= "¥#{(@item.price * 1.1).round(ndigits = 0).to_s(:delimited)}" %></strong>(税込)</h6>
       <%= form_with model: @cart_item , url: cart_items_path ,method: :post do |f| %>
         <!--個数選択-->
         <%= f.select :amount, (1..10) %>
@@ -23,4 +19,7 @@
         <%= f.submit "カートに入れる" ,class: "btn btn-success" %>
       <% end %>
     </div>
+  </div>
+
+
 </div>
