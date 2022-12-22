@@ -13,7 +13,7 @@ class Public::AddressesController < ApplicationController
     @addresses = Address.all
     @address.customer_id = current_customer.id
     if @address.save!
-    redirect_to addresses_path(@address.id)
+    redirect_to address_path(@address.id)
     else
     render :index
     end
@@ -22,7 +22,7 @@ class Public::AddressesController < ApplicationController
   def update
     @address = Address.find(params[:id])
     if @address.update(address_params)
-      redirect_to addresses_path(@address.id)
+      redirect_to addresses_path
     else
       render :edit
     end
