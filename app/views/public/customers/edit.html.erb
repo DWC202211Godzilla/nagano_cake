@@ -45,11 +45,10 @@
     <tr>
       <th colspan="2"></th>
       <td ><button class="btn btn-success sign_up_button" type="submit">編集内容を保存</button></td>
+  <% end %>
       <td></td>
-      <td><% link_to "退会する", customers_unsubscribe_path %></td>
+      <td><%= link_to "退会する", customers_unsubscribe_path, class:"btn btn-danger"%></td>
     </tr>
   </table>
-
-<% end %>
 
 
