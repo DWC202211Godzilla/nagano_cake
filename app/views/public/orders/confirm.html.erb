@@ -13,9 +13,9 @@
         <% @cart_items.each do |cart| %>
           <tr>
             <td class="border border-dark table-light"><%= cart.item.name %></td>
-            <td class="border border-dark table-light"><%= (cart.item.price * 1.1).to_s(:delimited) %></td>
+            <td class="border border-dark table-light"><%= ((cart.item.price * 1.1).round(ndigits = 0)).to_s(:delimited) %></td>
             <td class="border border-dark table-light"><%= cart.amount %></td>
-            <td class="border border-dark table-light"><%= (cart.item.price * 1.1 * cart.amount).to_s(:delimited) %></td>
+            <td class="border border-dark table-light"><%= ((cart.item.price * 1.1 * cart.amount).round(ndigits = 0)).to_s(:delimited) %></td>
           </tr>
         <% end %>
       </table>

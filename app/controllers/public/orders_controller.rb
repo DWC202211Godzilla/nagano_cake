@@ -7,11 +7,14 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @cart_items = current_customer.cart_items.all
-    @total = @cart_items.inject(0) {|sum , item| sum += (item.price * 1.1 )}
+    total = 0
+    @cart_items.each do |cart|
+      total += (cart.item.price * 1.1 * cart.amount).round(ndigits = 0)
+    end
 
     @order = Order.new(order_params)
     @order.shipping_cost = 800
-    @order.total_payment = @order.shipping_cost + @total
+    @order.total_payment = @order.shipping_cost + total 
     @order.status = "waiting"
 
     if params[:order][:address_number] == "1"

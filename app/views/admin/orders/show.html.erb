@@ -16,12 +16,12 @@
               <% end %>
               </td>
             <td class="table-light">
-              <% order.order_details.each do |detail| %>
-                <% @amount += detail.amount  %>
-                <% if detail.amount == nil %>
-                  <%= @amount %>
-                <% end %>
+              <% details = order.order_details %>
+              <% i=0 %>
+              <% details.each do |detail| %>
+                <% i=i+ detail.amount %>
               <% end %>
+              <%= i %>
             </td>
             <td class="table-light">
               <%= render "public/orders/status" , order: order %>

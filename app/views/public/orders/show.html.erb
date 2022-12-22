@@ -67,9 +67,9 @@
         <% @order.order_details.each do |detail| %>
           <tr>
             <td class="border border-dark table-light"><%= detail.item.name %></td>
-            <td class="border border-dark table-light"><%= (detail.item.price * 1.1).to_s(:delimited) %></td>
+            <td class="border border-dark table-light"><%= ((detail.item.price * 1.1).round(ndigits = 0)).to_s(:delimited) %></td>
             <td class="border border-dark table-light"><%= detail.amount %></td>
-            <td class="border border-dark table-light"><%= (detail.item.price * 1.1 * detail.amount).to_s(:delimited) %></td>
+            <td class="border border-dark table-light"><%= ((detail.item.price * 1.1 * detail.amount).round(ndigits = 0)).to_s(:delimited) %></td>
           </tr>
         <% end %>
       </table>
