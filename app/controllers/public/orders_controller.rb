@@ -1,4 +1,5 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_customer!
   before_action :confirm_match? , only: [:show]
 
   def new
