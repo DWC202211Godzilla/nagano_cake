@@ -1,23 +1,15 @@
 class Admin::OrdersController < ApplicationController
   def show
-    @orders = Order.where(params[:id]).order(created_at: :desc)
-  end
-
-  def update
     @orders = Order.all
     @order = Order.find(params[:id])
     @order_details = @order.order_details.all
+  end
 
-    if params[:status]
-      @order.update(order_params)
-      redirect_to request.referer
-    end
+  def update
+    @order = Order.find(params[:id])
 
-    if params[:making]
-      @order_details.update(making_status: params[:making_status])
-      redirect_to request.referer
-    end
-
+    @order.update(order_params)
+    redirect_to request.referer
   end
 
 
