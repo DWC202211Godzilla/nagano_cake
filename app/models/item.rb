@@ -9,7 +9,6 @@ class Item < ApplicationRecord
   has_many :order_details
   belongs_to :genre
 
-
   def self.search(search)
     if search != nil
       Item.where(['name LIKE ?', "%#{search}"])
