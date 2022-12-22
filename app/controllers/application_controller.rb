@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_customer!, except: [:top, :index, :show, :about]
 
   protect_from_forgery with: :exception
   before_action :configre_permitted_parameters, if: :devise_controller?
