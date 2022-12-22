@@ -17,7 +17,7 @@
       <% @orders.each do |a_order|%>
       <tr>
         <td>
-          <%= link_to admin_order_path(order), class: "text-dark" do %>
+          <%= link_to admin_order_path(a_order), class: "text-dark" do %>
             <%= a_order.created_at.strftime("%Y/%m/%d %H:%M:%S") %>
           <% end %>
         </td>
@@ -25,13 +25,13 @@
         <td>
           <% details=a_order.order_details %>
           <% i=0 %>
-          <%= details.each do |a_detail| %>
+          <% details.each do |a_detail| %>
             <% i=i+a_detail.amount %>
           <% end %>
           <%= i %>
         </td>
         <td>
-          <%= a_order.select :status, [[Order.statuses_i18n[:waiting],"waiting"],[Order.statuses_i18n[:paid_up],"paid_up"],[Order.statuses_i18n[:production],"production"],[Order.statuses_i18n[:preparing],"preparing"],[Order.statuses_i18n[:shipped],"shipped"]] %>
+            <%= render "public/orders/status" , order: a_order %>
         </td>
       </tr>
       <% end %>

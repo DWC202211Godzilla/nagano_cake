@@ -3,6 +3,6 @@ class CartItem < ApplicationRecord
 
   #税込の計算メソッド
   def sum_price
-    item.taxin_price*quantity
+    (item.price*1.1).round(ndigits = 0)
   end
 end

@@ -21,10 +21,10 @@
             </td>
             <td class="border border-dark table-light">
               <% order.order_details.each do |detail| %>
-                <%= detail.item.name %>
+                <%= detail.item.name %><br>
               <% end %>
             </td>
-            <td class="border border-dark table-light"><%= order.total_payment %></td>
+            <td class="border border-dark table-light"><%= order.total_payment.to_s(:delimited) %></td>
             <td class="border border-dark table-light">
               <%= render "public/orders/status" , order: order %>
             </td>

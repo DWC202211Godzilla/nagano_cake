@@ -42,7 +42,7 @@
   </div>
 
   <div class="row">
-    <div class="col-9">
+    <div class="col-8">
       <table class="table">
         <tr>
           <th class="table-active">商品名</th>
@@ -55,21 +55,21 @@
         <% @order_details.each do |detail| %>
           <tr>
             <td><%= detail.item.name %></td>
-            <td><%= (detail.item.price * 1.1).to_s(:delimited) %></td>
+            <td><%= ((detail.item.price * 1.1).round(ndigits = 0)).to_s(:delimited) %></td>
             <td><%= detail.amount %></td>
-            <td><%= (detail.item.price * 1.1 * detail.amount).to_s(:delimited) %></td>
+            <td><%= ((detail.item.price * 1.1 * detail.amount).round(ndigits = 0)).to_s(:delimited) %></td>
             <%= form_with model: @order, url: admin_order_path(@order),method: :patch do |f| %>
               <td>
-                <%= f.select :making_status, [[detail.making_statuses_i18n[:production_not_possible],"production_not_possible"],[detail.making_statuses_i18n[:production_pending],"production_pending"],[detail.making_statuses_i18n[:in_production],"in_production"],[detail.making_statuses_i18n[:production_complete],"production_complete"]] %>
+                <%= f.select :making_status, [[OrderDetail.making_statuses_i18n[:production_not_possible],"production_not_possible"],[OrderDetail.making_statuses_i18n[:production_pending],"production_pending"],[OrderDetail.making_statuses_i18n[:in_production],"in_production"],[OrderDetail.making_statuses_i18n[:production_complete],"production_complete"]] %>
               </td>
-              <td><%= f.submit "更新", name: "making_status" ,class: "btn btn-sm btn-success" %></td>
+              <td><%= f.submit "更新", name: "making" ,class: "btn btn-sm btn-success" %></td>
             <% end %>
           </tr>
         <% end %>
       </table>
     </div>
 
-    <div class="col-3">
+    <div class="col-4">
       <table class="table">
         <tr>
           <td class="border border-0"><strong>商品合計</strong></td>
