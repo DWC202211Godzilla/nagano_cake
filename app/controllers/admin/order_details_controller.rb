@@ -1,8 +1,15 @@
 class Admin::OrderDetailsController < ApplicationController
   before_action :authenticate_admin!
   def update
-    @order_details = OrderDetail.find(params[:id])
-    @order_details.update(order_detail_params)
+    @order_detail = OrderDetail.find(params[:id])
+    @order = Order.find(@order_detail.order_id)
+    @order_detail.update(order_detail_params)
+
+      if @order_detail.making_status == "in_production"
+        @order.update(status: "production")
+      elsif OrderDetail.where(making_status: "production_complete",order_id: @order.id).count == @order.order_details.count
+        @order.update(status: "preparing")
+      end
     redirect_to request.referer
   end
 

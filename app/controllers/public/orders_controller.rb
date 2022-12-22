@@ -4,6 +4,10 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order = Order.new
+    @cart_items = current_customer.cart_items.all
+    if @cart_items.count == 0
+      redirect_to cart_items_path
+    end
   end
 
   def confirm
@@ -15,7 +19,7 @@ class Public::OrdersController < ApplicationController
 
     @order = Order.new(order_params)
     @order.shipping_cost = 800
-    @order.total_payment = @order.shipping_cost + total 
+    @order.total_payment = @order.shipping_cost + total
     @order.status = "waiting"
 
     if params[:order][:address_number] == "1"
