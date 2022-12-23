@@ -7,6 +7,7 @@
   box-sizing: border-box;
 }
 
+
 .header{
   width: 100%;
   hight: 80px;
@@ -77,6 +78,17 @@ body{
   right: 150px;
 }
 
+.search_button{
+  width:28px;
+  border:solid aqua;
+  background-color:lightcyan;
+}
+
+.search_button i{
+  color:navy;
+}
+
+
 // テーブルの装飾
 table, tr, td {
   border-collapse: collapse;
@@ -143,6 +155,12 @@ table, tr, td {
 .home_items_photo{
   width:200px;
   height:200px;
+  object-fit:cover;
+}
+
+.items_index_photo{
+  width:200px;
+  height:100px;
   object-fit:cover;
 }
 

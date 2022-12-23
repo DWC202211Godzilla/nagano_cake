@@ -1,4 +1,4 @@
-<div class='container px-5 px-sm-0'>
+<div class='container px-5 px-sm-0 mt-5'>
   <div class='row'>
     <div class='col-md-2 mr-10'>
       <div class='home_search mr-5'>
@@ -20,7 +20,7 @@
         <% @items.each do |a_item| %>
           <div class='home_items'>
             <%= link_to item_path(a_item.id) do %>
-              <%= image_tag a_item.image, size:'200x100' %><br>
+              <%= image_tag a_item.image, class:"home_items_photo" %><br>
               <%= a_item.name %><br>
               <%= a_item.price %>(税抜き)
               <%= a_item.genre.name %>

@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+  before_action :authenticate_customer!
   def show
   end
 
@@ -24,6 +25,7 @@ class Public::CustomersController < ApplicationController
     reset_session
     redirect_to root_path
   end
+
 
   private
 

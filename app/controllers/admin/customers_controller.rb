@@ -1,4 +1,5 @@
 class Admin::CustomersController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @customers=Customer.page(params[:page])
   end
@@ -20,9 +21,6 @@ class Admin::CustomersController < ApplicationController
     end
   end
 
-  def search
-    @items=Item.search(search_params)
-  end
 
 
   private
@@ -31,8 +29,5 @@ class Admin::CustomersController < ApplicationController
     params.require(:customer).permit(:family_name, :personal_name, :family_name_kana, :personal_name_kana, :email, :post_code, :address, :phone_number, :is_deleted)
   end
 
-  # def search_params
-  #   params.permit(:search)
-  # end
 
 end
