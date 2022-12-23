@@ -8,7 +8,10 @@ class Public::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @cart_item = current_customer.cart_items.new
+    @genres = Genre.all
+    if customer_signed_in?
+      @cart_item = current_customer.cart_items.new
+    end
     redirect_to items_path unless @item.is_active == true
   end
 end

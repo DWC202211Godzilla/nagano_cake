@@ -1,23 +1,41 @@
 <div class='container'>
   <div class="row mt-5">
     <div class='col-3'>
-      <h6>ジャンル検索</h6>
+      <div class="home_search mr-5">
+        <h6 class="home_serch_top">ジャンル検索</h6>
+          <% if @genres != nil %>
+            <% @genres.each do |a_genre| %>
+              <p><%= a_genre.name %></p>
+            <% end %>
+          <% end %>
+      </div>
     </div>
     <div class='col-3'>
       <%= image_tag @item.image, size: "250x200" %>
     </div>
-    <div class='col-6'>
-      <h3><%= @item.name %></h3>
-      <p><%= @item.introduction %></p>
-      <h6><strong><%= "¥#{(@item.price * 1.1).round(ndigits = 0).to_s(:delimited)}" %></strong>(税込)</h6>
-      <%= form_with model: @cart_item , url: cart_items_path ,method: :post do |f| %>
-        <!--個数選択-->
-        <%= f.select :amount, (1..10) %>
-        <!--カートに入れる-->
-        <%= f.hidden_field :item_id , value: params[:id] %>
-        <%= f.hidden_field :customer_id , value: current_customer.id %>
-        <%= f.submit "カートに入れる" ,class: "btn btn-success" %>
-      <% end %>
+    <div class='offset-1 col-5'>
+      <h3 class="ml-5"><%= @item.name %></h3>
+      <p class="ml-5 mt-5"><%= @item.introduction %></p>
+      <h6 class="ml-5 mt-5"><strong><%= "¥#{(@item.price * 1.1).round(ndigits = 0).to_s(:delimited)}" %></strong>(税込)</h6>
+      <div class="ml-5 mt-5">
+        <% if customer_signed_in? %>
+          <%= form_with model: @cart_item , url: cart_items_path ,method: :post do |f| %>
+            <!--個数選択-->
+            <%= f.select :amount, (1..10) %>
+            <!--カートに入れる-->
+            <%= f.hidden_field :item_id , value: params[:id] %>
+            <%= f.hidden_field :customer_id , value: current_customer.id %>
+            <%= f.submit "カートに入れる" ,class: "btn btn-success ml-5" %>
+          <% end %>
+        <% else %>
+          <select>
+            <% (1..10).each do |i| %>
+              <option><%= i %></option>
+            <% end %>
+          </select>
+          <%= link_to "カートに入れる", new_customer_session_path ,class: "btn btn-success ml-5" %>
+        <% end %>
+      </div>
     </div>
   </div>
 
