@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'admin'=> 'admin/homes#top'
+  get 'search' => 'searches#search'
 
 
   scope module: :public do
@@ -44,7 +45,6 @@ Rails.application.routes.draw do
 
     resources :addresses, only:[:index,:edit,:create,:update,:destroy]
 
-    post 'customers/search' => 'customers#search'
   end
 
   namespace :admin do
@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:show, :update]
     resources :order_details, only:[:update]
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
