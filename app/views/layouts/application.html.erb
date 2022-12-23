@@ -69,9 +69,11 @@
                 </div>
               <% end %>
               <div class='header_search'>
-                <%= form_tag(customers_search_path, method: :post) do %>
+                <%= form_tag(search_path, method: :get) do %>
                   <%= text_field_tag :search %>
-                  <%= submit_tag 'Search', name: :search_bottun %>
+                  <button type="submit" class="search_button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
                 <% end %>
               </div>
             </ul>
