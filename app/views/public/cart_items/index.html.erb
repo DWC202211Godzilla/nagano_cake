@@ -20,6 +20,7 @@
       <% @cart_items.each do |cart| %>
         <tr>
           <td class="border border-dark table-light">
+            <%= image_tag cart.item.image , size: "50x50" %>
             <%= cart.item.name %>
           </td>
           <td  class="border border-dark table-light"><%= ((cart.item.price * 1.1).round(ndigits = 0)).to_s(:delimited) %></td>
