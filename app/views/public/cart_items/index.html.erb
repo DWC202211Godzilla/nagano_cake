@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-4">
-      <h2 class="ml-5 gray">ショッピングカート</h2>
+      <h5 class="ml-5 gray">ショッピングカート</h5>
     </div>
     <div class="offset-5 col-3">
       <%= link_to "カートを空にする", cart_items_destroy_all_path , method: :delete , "data-confirm" => "ほんまに空にするで？",class: "btn btn-danger" %>
@@ -39,13 +39,13 @@
 
   <div class="row mt-5">
     <div class="col-3 ml-5">
-      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary ml-5" %>
     </div>
-    <div class="offset-4 col-4">
-      <table class="table table-active table-bordered">
+    <div class="offset-5 col-3">
+      <table class="table table-active table-bordered ml-0 mr-5">
         <tr>
-          <td class="border border-dark">合計金額</td>
-          <td class="border border-dark table-light"><%= total.to_s(:delimited) %></td>
+          <td class="border border-dark pr-0">合計金額</td>
+          <td class="border border-dark table-light pr-0"><%= total.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>

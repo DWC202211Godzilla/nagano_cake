@@ -1,11 +1,13 @@
-<div class="container">
-  <h2 class="mt-5 ml-5 gray">注文履歴詳細</h2>
+<div class="container mt-5">
+  <h5 class="mt-5 ml-5 gray">注文履歴詳細</h5>
   <div class="row mb-5 mt-5">
     <div class="col-7">
       <table class="table">
         <tr>
           <td class="border border-0"><strong>購入者</strong></td>
-          <td class="border border-0"><%= @order.name %></td>
+          <td class="border border-0">
+            <%= link_to @order.customer.family_name + @order.customer.personal_name, admin_customer_path(@order.customer_id),class: "text-dark" %>
+          </td>
         </tr>
         <tr>
           <td class="border border-0"><strong>注文日</strong></td>
