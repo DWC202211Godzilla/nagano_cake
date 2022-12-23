@@ -14,7 +14,7 @@
     </div>
     <div class='col-md-9'>
       <div class='home_photo'>
-        <p>
+        <p class="home_introduction">
           ようこそ、ながのCAKEへ！<br>
           このサイトは、ケーキ販売のECサイトになります。<br>
           会員でない方も商品の閲覧はできますが、<br>
@@ -27,9 +27,9 @@
             <% @items.each do |a_item| %>
               <div class='home_items'>
                 <%= link_to item_path(a_item.id) do %>
-                  <%= image_tag a_item.image, class:"home_items_photo" %><br>
+                  <%= image_tag a_item.image, class:"home_items_photo link" %><br>
                   <%= a_item.name %><br>
-                  <%= a_item.price %>(税抜き)
+                  <%= a_item.price %>円(税抜き)
         　     　<% end %>
               </div>
             <% end %>

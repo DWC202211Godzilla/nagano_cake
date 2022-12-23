@@ -13,20 +13,19 @@
       </div>
     </div>
   <div class='col-md-10'>
-    <h3 class='font-weight-bold ml-5'>商品一覧</h3>
-    <div class='d-flex'>
-      <div class='home_items_box flex-wrap ml-5'>
-        <% if @items != nil %>
-          <% @items.each do |a_item| %>
-            <div class='home_items'>
-              <%= link_to item_path(a_item.id) do %>
-                <%= image_tag a_item.image, class:"home_items_photo" %><br>
-                <%= a_item.name %><br>
-                <%= a_item.price %>(税抜き)
-                <%= a_item.genre.name %>
-              <% end %>
-            </div>
-          <% end %>
+  <h3 class='font-weight-bold ml-5'>商品一覧</h3>
+  <div class='d-flex'>
+    <div class='home_items_box flex-wrap ml-5'>
+      <% if @items != nil %>
+        <% @items.each do |a_item| %>
+          <div class='home_items'>
+            <%= link_to item_path(a_item.id) do %>
+              <%= image_tag a_item.image, class:"home_items_photo" %><br>
+              <%= a_item.name %><br>
+              <%= a_item.price %>円(税抜き)
+              <%= a_item.genre.name %>
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>
