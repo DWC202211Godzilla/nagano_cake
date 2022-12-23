@@ -26,7 +26,7 @@
           <% details=a_order.order_details %>
           <% i=0 %>
           <% details.each do |a_detail| %>
-            <% i=i+a_detail.amount %>
+            <% i=i+a_detail.amount.to_i %>
           <% end %>
           <%= i %>
         </td>

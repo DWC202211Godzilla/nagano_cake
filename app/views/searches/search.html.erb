@@ -1,0 +1,55 @@
+<h5 class="gray">検索結果</h2>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col" width="30%"></th>
+      <th scope="col" width="30%">商品名</th>
+      <th scope="col" width="40%"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% if customer_signed_in? %>
+      <% if @items != nil %>
+        <% @items.each do |a_item| %>
+        <tr>
+          <td>
+          <%= link_to item_path(a_item.id) do%>
+            <%= image_tag a_item.image, class:"home_items_photo" %>
+          <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= link_to "#{a_item.name}", item_path(a_item.id) %></td>
+        </tr>
+        <tr></tr>
+        <% end %>
+      <% end %>
+    <% elsif admin_signed_in? %>
+      <% if @all_items != nil %>
+        <% @all_items.each do |a_item| %>
+        <tr>
+          <td>
+          <%= link_to item_path(a_item.id) do%>
+            <%= image_tag a_item.image, class:"home_items_photo" %>
+          <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td><%= link_to "#{a_item.name}", item_path(a_item.id) %></td>
+        </tr>
+        <tr>
+          <td>
+            <% if a_item.is_active==true %>
+              <b class="text-success">販売中</b>
+            <% else %>
+              <b class="text-black-50">売り切れ</b>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
