@@ -1,33 +1,34 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-3'>
-    <h4 class="gray">ジャンル一覧・追加</h4>
-    <div class='col-xs-3'>
-      <%= form_with model: @genre, url:admin_genres_path(@genre.id), method: :post do |f| %>
-      <%= f.label :name, 'ジャンル名' %>
-      <br>
-      <%= f.text_field :name, class:'form-control' %>
-      <br>
-      <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
-      <% end %>
-    </div>
-  <div class='col-xs-9' >
-    <table>
-      <thead>
-        <tr>
-          <th> カテゴリー名</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @genres.each do |genres| %>
-          <tr>
-            <td><%= genres.name %></td>
-            <td><%= link_to '編集', edit_admin_genre_path(genres.id), class: 'btn-sm btn-primary' %></td>
-          </tr>
+      <h4 class="gray">ジャンル一覧・追加</h4>
+      <div class='col-xs-3'>
+        <%= form_with model: @genre, url:admin_genres_path(@genre.id), method: :post do |f| %>
+          <%= f.label :name, 'ジャンル名' %>
+          <br>
+          <%= f.text_field :name, class:'form-control' %>
+          <br>
+          <%= f.submit '追加', class: 'btn btn-primary btn-block' %>
         <% end %>
-      </tbody>
-    </table>
-  </div>
+      </div>
+      <div class='col-xs-9' >
+        <table>
+          <thead>
+            <tr>
+              <th> カテゴリー名</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @genres.each do |genres| %>
+              <tr>
+                <td><%= genres.name %></td>
+                <td><%= link_to '編集', edit_admin_genre_path(genres.id), class: 'btn-sm btn-primary' %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
