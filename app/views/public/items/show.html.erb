@@ -3,11 +3,11 @@
     <div class='col-3'>
       <div class="home_search mr-5">
         <h6 class="home_serch_top">ジャンル検索</h6>
-          <% if @genres != nil %>
-            <% @genres.each do |a_genre| %>
-              <p><%= a_genre.name %></p>
-            <% end %>
+        <% if @genres != nil %>
+          <% @genres.each do |a_genre| %>
+            <p><%= a_genre.name %></p>
           <% end %>
+        <% end %>
       </div>
     </div>
     <div class='col-3'>
@@ -38,6 +38,4 @@
       </div>
     </div>
   </div>
-
-
 </div>

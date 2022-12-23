@@ -1,29 +1,29 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-7 mx-auto">
-    <h4 class="gray">配送先登録 / 一覧</h4>
+      <h4 class="gray">配送先登録 / 一覧</h4>
 
-    <!--住所登録フォーム-->
-    <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
-    <div class="form-group">
-      <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "mr-5" %>
-      <%= f.number_field :post_code, placeholder: "0000000", class: "rounded mb-3 ml-3",size: 40 %>
+      <!--住所登録フォーム-->
+        <%= form_with model: @address, url: addresses_path, method: :post do |f| %>
+          <div class="form-group">
+            <%= f.label :post_code, "郵便番号(ハイフンなし)", class: "mr-5" %>
+            <%= f.number_field :post_code, placeholder: "0000000", class: "rounded mb-3 ml-3",size: 40 %>
+          </div>
+          <div class="form-group">
+            <%= f.label :address, "住所", class: "mr-5" %>
+            <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded mb-3 ml-3",size: 40  %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name, "宛名", class: "mr-5" %>
+            <%= f.text_field :name, placeholder: "令和道子", class: "rounded mb-3 ml-3",size: 40 %>
+            <%= f.submit '新規登録', class: "btn btn-sm btn-success ml-5" %>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :address, "住所", class: "mr-5" %>
-      <%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class: "rounded mb-3 ml-3",size: 40  %>
-    </div>
-    <div class="form-group">
-      <%= f.label :name, "宛名", class: "mr-5" %>
-      <%= f.text_field :name, placeholder: "令和道子", class: "rounded mb-3 ml-3",size: 40 %>
-      <%= f.submit '新規登録', class: "btn btn-sm btn-success ml-5" %>
-    </div>
-    <% end %>
-    </div>
-  </div>
 
-<div class="pull-left">
-<!--住所一覧-->
+  <div class="pull-left">
+    <!--住所一覧-->
     <table border="1" cellpadding="10">
       <thead>
         <tr bgcolor="gainsboro">
@@ -36,14 +36,14 @@
 
       <tbody>
         <% @addresses.each do |address| %>
-        <tr>
-          <td><%= address.post_code %></td>
-          <td><%= address.address %></td>
-          <td><%= address.name %></td>
-          <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-sm btn-success mx-2" %><%= link_to "削除する", address_path(address.id),class: "btn btn-sm btn-danger mx-2",method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
-        </tr>
+          <tr>
+            <td><%= address.post_code %></td>
+            <td><%= address.address %></td>
+            <td><%= address.name %></td>
+            <td><%= link_to "編集する", edit_address_path(address.id), class: "btn btn-sm btn-success mx-2" %><%= link_to "削除する", address_path(address.id),class: "btn btn-sm btn-danger mx-2",method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+          </tr>
         <% end %>
       </tbody>
     </table>
-    </div>
+  </div>
 </div>

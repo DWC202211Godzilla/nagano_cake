@@ -14,19 +14,19 @@
     <tbody>
       <% if @all_items != nil %>
         <% @all_items.each do |a_item| %>
-        <tr>
-          <td><%= a_item.id %></td>
-          <td><%= link_to "#{a_item.name}", item_path(a_item.id) %></td>
-          <td><%= a_item.price %></td>
-          <td><%= a_item.genre.name %></td>
-          <td>
-            <% if a_item.is_active==true %>
-              <b class="text-success">販売中</b>
-            <% else %>
-              <b class="text-black-50">販売停止中</b>
-            <% end %>
-          </td>
-        </tr>
+          <tr>
+            <td><%= a_item.id %></td>
+            <td><%= link_to "#{a_item.name}", item_path(a_item.id) %></td>
+            <td><%= a_item.price %></td>
+            <td><%= a_item.genre.name %></td>
+            <td>
+              <% if a_item.is_active==true %>
+                <b class="text-success">販売中</b>
+              <% else %>
+                <b class="text-black-50">販売停止中</b>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       <% end %>
     </tbody>
