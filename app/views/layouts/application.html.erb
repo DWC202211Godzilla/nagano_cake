@@ -16,27 +16,28 @@
     <header class="shadow-sm header">
       <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-          <a class="navbar-brand p-3" href="/"><%= image_tag 'naganocake-logo.png', size: '100x100' %></a>
+          <a class="navbar-brand naganocake_logo" href="/"><%= image_tag 'naganocake-logo.png', size: '150x150' %></a>
           <% if customer_signed_in? %>
-              <h6 class="mx-auto">ようこそ<%= current_customer.family_name %>さん！</h6>
-            <% end %>
+            <div class="hello">
+              <h6 class="mr-0 text-right">ようこそ<%= current_customer.family_name %>さん！</h6>
+            </div>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
               <% if customer_signed_in? %>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "マイページ", customers_my_page_path, class:"link" %>
                 </div>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "商品一覧", items_path, class:"link" %>
                 </div>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "カート", cart_items_path, class:"link" %>
                 </div>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class:"link" %>
                 </div>
 
