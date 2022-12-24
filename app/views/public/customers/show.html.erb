@@ -1,12 +1,10 @@
-<div class='container px-5 px-sm-0'>
-  <div class='row'>
-    <div>
-      <h6 class="gray">マイページ</h6>
+<div class='container'>
+  <div>
+    <h4 class="gray mr-5">マイページ</h4>
+    <div class='mt-3 mb-3'>
+      <b  class='mr-5'>登録情報</b><%= link_to "編集する", customers_information_edit_path, class:"btn btn-success mr-5" %>
     </div>
-
-    <div>
-      <b>登録情報</b><%= link_to "編集する", customers_information_edit_path, class:"btn btn-success" %>
-    </div>
+  </div>
 
     <table class="my_page_table">
       <tr>
@@ -29,7 +27,7 @@
       </tr>
     </table>
 
-    <table>
+    <table class='mt-2'>
       <tr>
         <th>配送先</th><td><%= link_to "一覧を見る", addresses_path, class:"btn btn-primary" %></td>
       </tr>
@@ -37,5 +35,4 @@
         <th>注文履歴</th><td><%= link_to "一覧を見る", orders_path, class:"btn btn-primary" %></td>
       </tr>
     </table>
-  </div>
 </div>

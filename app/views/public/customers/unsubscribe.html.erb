@@ -1,5 +1,4 @@
 <div class='container px-5 px-sm-0'>
-  <div class='row'>
     <div class="about">
       <b>本当に退会しますか？</b>
       <p>
@@ -10,5 +9,4 @@
       <%= link_to "退会しない",customers_my_page_path, class:"btn btn-primary" %>
       <%= link_to "退会する",customers_withdraw_path(current_customer.id), method: :patch, class:"btn btn-danger" %>
     </div>
-  </div>
 </div>

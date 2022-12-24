@@ -123,14 +123,14 @@ table, tr, td {
 
 .home_photo{
   background-image: url("../images/cake-topimage.png");
-  background-size: 100% 100%;
-  width: 640px;
-  height: 480px;
+  background-size: cover;
+  width: 700px;
+  height: 400px;
   margin: 10px;
-  padding: 320px 80px 50px 100px;
+  padding: 250px 150px 50px 150px;
 }
 .home_introduction{
-   background-color: rgba( 255, 255, 255, 0.5);
+  background-color: rgba( 255, 255, 255, 0.5);
 }
 
 .home_items_box{
