@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-<<<<<<< HEAD
+before_action :authenticate_admin!
  def show
   @orders = Order.all
   @order = Order.find(params[:id])
@@ -14,13 +14,6 @@ class Admin::OrdersController < ApplicationController
    @order.order_details.each do |order_detail|
     order_detail.update(making_status: "production_pending")
    end
-=======
-  before_action :authenticate_admin!
-  def show
-    @orders = Order.all
-    @order = Order.find(params[:id])
-    @order_details = @order.order_details.all
->>>>>>> origin/develop
   end
 
   redirect_to request.referer
