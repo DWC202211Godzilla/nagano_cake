@@ -42,13 +42,13 @@
                 </div>
 
               <% elsif admin_signed_in? %>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "商品一覧", admin_items_path, class:"link" %>
                 </div>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "会員一覧", admin_customers_path, class:"link" %>
                 </div>
-                <div class='header_item'>
+                <div class='header_item bg-light'>
                   <%= link_to "注文履歴一覧", admin_path, class:"link" %>
                 </div>
                 <div class='header_item'>
