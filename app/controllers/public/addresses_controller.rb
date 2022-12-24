@@ -1,7 +1,7 @@
 class Public::AddressesController < ApplicationController
   before_action :authenticate_customer!
   def index
-    @addresses = Address.all
+    @addresses = current_customer.addresses.all
     @address = Address.new
   end
 
@@ -11,9 +11,9 @@ class Public::AddressesController < ApplicationController
 
   def create
     @address = Address.new(address_params)
-    @addresses = Address.all
+    @addresses = current_customer.addresses.all
     @address.customer_id = current_customer.id
-    if @address.save!
+    if @address.save
     redirect_to addresses_path
     else
     render :index

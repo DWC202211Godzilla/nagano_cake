@@ -1,5 +1,5 @@
-<div class="admin_customer_edit_top">
-  <h5 class="gray"><%= @customer.family_name %><%= @customer.personal_name %>さんの会員情報編集</h5>
+<div class="admin_customer_edit_top ml-5">
+  <h5 class="gray ml-5"><%= @customer.family_name %><%= @customer.personal_name %>さんの会員情報編集</h5>
 </div>
 
 <%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
