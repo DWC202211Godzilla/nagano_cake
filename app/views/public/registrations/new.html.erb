@@ -57,6 +57,60 @@
           <td colspan="2"></td>
         </tr>
       </table>
+=======
+  <table class="sign_up_items">
+    <colgroup>
+      <col width="150px">
+      <col width="40px">
+      <col width="150px">
+      <col width="30px">
+      <col width="150px">
+    </colgroup>
+    <tr>
+      <th>名前</th>
+      <th class="sign_up_label"><%= f.label :family_name,"(姓)" %></th>
+      <td><%= f.text_field :family_name, autofocus: true, class:"rounded" %></td>
+      <th class="sign_up_label"><%= f.label :personal_name,"(名)" %></th>
+      <td><%= f.text_field :personal_name, class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <th class="sign_up_label"><%= f.label :family_name_kana,"(セイ)" %></th>
+      <td><%= f.text_field :family_name_kana, class:"rounded" %></td>
+      <th class="sign_up_label"><%= f.label :personal_name_kana,"(メイ)" %></th>
+      <td><%= f.text_field :personal_name_kana, class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2">メールアドレス</th>
+      <td colspan="3"><%= f.email_field :email, autocomplete: "email", class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2">郵便番号(ハイフンなし)</th>
+      <td colspan="3"><%= f.text_field :post_code, class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2">住所</th>
+      <td colspan="3"><%= f.text_field :address , class:"sign_up_address rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2">電話番号(ハイフンなし)</th>
+      <td colspan="3"><%= f.text_field :phone_number, class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2">パスワード(6文字以上)</th>
+      <td colspan="3"><%= f.password_field :password, autocomplete: "new-password", class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2">パスワード(確認用)</th>
+      <td colspan="3"><%= f.password_field :password_confirmation, autocomplete: "new-password", class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th colspan="2"></th>
+      <td ><button class="btn btn-success sign_up_button" type="submit">新規登録</button></td>
+      <td colspan="2"></td>
+    </tr>
+  </table>
+
 
     <% end %>
 
