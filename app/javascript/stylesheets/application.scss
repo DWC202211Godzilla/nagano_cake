@@ -8,7 +8,12 @@
 }
 
 
-
+.header{
+  background-image: url("../images/8848.jpg");
+  background-size: cover;
+  width:100%;
+  height:130px;
+}
 
 .main{
   height: auto;
@@ -28,6 +33,8 @@ body{
   border-top: 1px solid;
   position: absolute;/*←絶対位置*/
   bottom: 0; /*下に固定*/
+  background-image: url("../images/8848.jpg");
+  background-size: cover;
 }
 
 .logo{
