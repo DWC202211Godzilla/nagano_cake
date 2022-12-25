@@ -73,9 +73,9 @@
                 </div>
               <% end %>
               <div class='header_search'>
-                <%= form_tag(search_path, method: :post) do %>
-                  <%= text_field_tag :search %>
-                  <%= submit_tag 'Search', name: :search_bottun %>
+                <%= form_with url: search_path , method: :get do |f| %>
+                  <%= f.text_field :search %>
+                  <%= f.submit 'Search', name: :search_bottun %>
                 <% end %>
               </div>
             </ul>
