@@ -1,0 +1,13 @@
+<% if order.status == "waiting" %>
+  <%= Order.statuses_i18n[:waiting] %>
+<% elsif order.status == "paid_up" %>
+  <%= Order.statuses_i18n[:paid_up] %>
+<% elsif order.status == "production" %>
+  <%= Order.statuses_i18n[:production] %>
+<% elsif order.status == "preparing" %>
+  <%= Order.statuses_i18n[:preparing] %>
+<% elsif order.status == "shipped" %>
+  <%= Order.statuses_i18n[:shipped] %>
+<% else %>
+  エラー
+<% end %>

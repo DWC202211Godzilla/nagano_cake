@@ -1,2 +1,64 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="admin_customer_edit_top ml-5">
+  <h5 class="gray ml-5"><%= @customer.family_name %><%= @customer.personal_name %>さんの会員情報編集</h5>
+</div>
+
+<%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
+
+  <table class="sign_up_items">
+    <colgroup>
+      <col width="150">
+      <col width="60">
+      <col width="130">
+      <col width="10">
+      <col width="190">
+    </colgroup>
+    <tr>
+      <th>会員ID</th>
+      <td colspan="2"><%= @customer.id %></td>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <th>氏名</th>
+      <td colspan="2"><%= f.text_field :family_name, autofocus: true, class:"rounded" %></td>
+      <td></td>
+      <td><%= f.text_field :personal_name, class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th>フリガナ</th>
+      <td colspan="2"><%= f.text_field :family_name_kana, class:"rounded" %></td>
+      <td></td>
+      <td><%= f.text_field :personal_name_kana, class:"rounded" %></td>
+    </tr>
+    <tr>
+      <th>郵便番号</th>
+      <td colspan="2"><%= f.text_field :post_code, class:"rounded" %></td>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <th>住所</th>
+      <td colspan="4"><%= f.text_field :address , class:"sign_up_address rounded" %></td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td colspan="2"><%= f.text_field :phone_number, class:"rounded" %></td>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <th>メールアドレス</th>
+      <td colspan="2"><%= f.email_field :email, class:"rounded" %></td>
+      <td colspan="2"></td>
+    </tr>
+    <tr>
+      <th>会員ステータス</th>
+      <td><%= f.radio_button :is_deleted, :false %>有効</td>
+      <td><%= f.radio_button :is_deleted, :true %>退会</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th></th>
+      <td colspan="2"><button class="btn btn-success sign_up_button" type="submit">変更を保存</button></td>
+      <td colspan="2"></td>
+    </tr>
+  </table>
+
+<% end %>

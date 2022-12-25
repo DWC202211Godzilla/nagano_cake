@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Admin.create!(
+#   email:'admin@gmail.com',
+#   password:'adminpass'
+# )
+
+# Genre.create!(
+#   name:"ケーキ",
+#   )
+
+# Item.create!(
+#   genre_id:1,
+#   name:"シフォンケーキ",
+#   price:1200,
+#   introduction:"ホワイトチョコレートがかかったシフォンケーキです"
+#   )
+
+# Item.find(1).image.attach(io: File.open(Rails.root.join('app/assets/images/cake.png')),
+#                   filename: 'cake.png')

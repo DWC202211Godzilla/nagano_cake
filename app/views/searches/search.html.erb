@@ -1,0 +1,51 @@
+<h5 class="gray">検索結果</h2>
+
+<% if admin_signed_in? %>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" width="15%">商品ID</th>
+        <th scope="col" width="25%">商品名</th>
+        <th scope="col" width="15%">税抜価格</th>
+        <th scope="col" width="25%">ジャンル</th>
+        <th scope="col" width="20%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @all_items != nil %>
+        <% @all_items.each do |a_item| %>
+          <tr>
+            <td><%= a_item.id %></td>
+            <td><%= link_to "#{a_item.name}", item_path(a_item.id) %></td>
+            <td><%= a_item.price %></td>
+            <td><%= a_item.genre.name %></td>
+            <td>
+              <% if a_item.is_active==true %>
+                <b class="text-success">販売中</b>
+              <% else %>
+                <b class="text-black-50">販売停止中</b>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+　</table>
+<% else %>
+  <div class='d-flex'>
+    <div class='home_items_box flex-wrap ml-5'>
+      <% if @items != nil %>
+        <% @items.each do |a_item| %>
+          <div class='home_items'>
+            <%= link_to item_path(a_item.id) do %>
+              <%= image_tag a_item.image, class:"home_items_photo" %><br>
+              <%= a_item.name %><br>
+              <%= a_item.price %>(税抜き)
+              <%= a_item.genre.name %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
